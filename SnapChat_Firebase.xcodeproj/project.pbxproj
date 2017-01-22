@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		F72A4A0E1E2C01C400F7E7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A4A0D1E2C01C400F7E7F1 /* AppDelegate.swift */; };
-		F72A4A101E2C01C400F7E7F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A4A0F1E2C01C400F7E7F1 /* ViewController.swift */; };
+		F72A4A101E2C01C400F7E7F1 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A4A0F1E2C01C400F7E7F1 /* CameraVC.swift */; };
 		F72A4A131E2C01C400F7E7F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A111E2C01C400F7E7F1 /* Main.storyboard */; };
 		F72A4A151E2C01C400F7E7F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A141E2C01C400F7E7F1 /* Assets.xcassets */; };
 		F72A4A181E2C01C400F7E7F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A161E2C01C400F7E7F1 /* LaunchScreen.storyboard */; };
+		F7A417F91E3543C900739C48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7A417F81E3543C900739C48 /* GoogleService-Info.plist */; };
+		F7C48D431E32FD7F0038F7ED /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D411E32FD7F0038F7ED /* PreviewView.swift */; };
+		F7C48D441E32FD7F0038F7ED /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */; };
+		F7C48D461E32FDEC0038F7ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D451E32FDEC0038F7ED /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F72A4A0A1E2C01C400F7E7F1 /* SnapChat_Firebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapChat_Firebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72A4A0D1E2C01C400F7E7F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F72A4A0F1E2C01C400F7E7F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F72A4A0F1E2C01C400F7E7F1 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		F72A4A121E2C01C400F7E7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F72A4A141E2C01C400F7E7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72A4A171E2C01C400F7E7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F72A4A191E2C01C400F7E7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7A417F81E3543C900739C48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F7C48D411E32FD7F0038F7ED /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
+		F7C48D451E32FDEC0038F7ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,50 @@
 		F72A4A0C1E2C01C400F7E7F1 /* SnapChat_Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				F7C48D401E32FD6E0038F7ED /* AVCamera */,
+				F72A4A211E2C035100F7E7F1 /* Model */,
+				F72A4A201E2C034D00F7E7F1 /* View */,
+				F72A4A1F1E2C034100F7E7F1 /* Controller */,
 				F72A4A0D1E2C01C400F7E7F1 /* AppDelegate.swift */,
-				F72A4A0F1E2C01C400F7E7F1 /* ViewController.swift */,
 				F72A4A111E2C01C400F7E7F1 /* Main.storyboard */,
 				F72A4A141E2C01C400F7E7F1 /* Assets.xcassets */,
 				F72A4A161E2C01C400F7E7F1 /* LaunchScreen.storyboard */,
+				F7A417F81E3543C900739C48 /* GoogleService-Info.plist */,
 				F72A4A191E2C01C400F7E7F1 /* Info.plist */,
 			);
 			path = SnapChat_Firebase;
+			sourceTree = "<group>";
+		};
+		F72A4A1F1E2C034100F7E7F1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F7C48D451E32FDEC0038F7ED /* CameraViewController.swift */,
+				F72A4A0F1E2C01C400F7E7F1 /* CameraVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F72A4A201E2C034D00F7E7F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7C48D411E32FD7F0038F7ED /* PreviewView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F72A4A211E2C035100F7E7F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F7C48D401E32FD6E0038F7ED /* AVCamera */ = {
+			isa = PBXGroup;
+			children = (
+				F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */,
+			);
+			name = AVCamera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F72A4A181E2C01C400F7E7F1 /* LaunchScreen.storyboard in Resources */,
+				F7A417F91E3543C900739C48 /* GoogleService-Info.plist in Resources */,
 				F72A4A151E2C01C400F7E7F1 /* Assets.xcassets in Resources */,
 				F72A4A131E2C01C400F7E7F1 /* Main.storyboard in Resources */,
 			);
@@ -137,8 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F72A4A101E2C01C400F7E7F1 /* ViewController.swift in Sources */,
+				F72A4A101E2C01C400F7E7F1 /* CameraVC.swift in Sources */,
+				F7C48D461E32FDEC0038F7ED /* CameraViewController.swift in Sources */,
 				F72A4A0E1E2C01C400F7E7F1 /* AppDelegate.swift in Sources */,
+				F7C48D441E32FD7F0038F7ED /* PhotoCaptureDelegate.swift in Sources */,
+				F7C48D431E32FD7F0038F7ED /* PreviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +348,7 @@
 				F72A4A1E1E2C01C400F7E7F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
