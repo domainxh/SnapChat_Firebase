@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F72A4A091E2C01C400F7E7F1"
-               BuildableName = "SnapChat_Firebase.app"
-               BlueprintName = "SnapChat_Firebase"
-               ReferencedContainer = "container:SnapChat_Firebase.xcodeproj">
+               BuildableName = "SlapChat_Firebase.app"
+               BlueprintName = "SlapChat_Firebase"
+               ReferencedContainer = "container:SlapChat_Firebase.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F72A4A091E2C01C400F7E7F1"
-            BuildableName = "SnapChat_Firebase.app"
-            BlueprintName = "SnapChat_Firebase"
-            ReferencedContainer = "container:SnapChat_Firebase.xcodeproj">
+            BuildableName = "SlapChat_Firebase.app"
+            BlueprintName = "SlapChat_Firebase"
+            ReferencedContainer = "container:SlapChat_Firebase.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,14 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aq7-Az-Ap0">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Signin-->
+        <scene sceneID="ZPV-VW-GcC">
+            <objects>
+                <viewController id="aq7-Az-Ap0" customClass="Signin" customModule="SnapChat_Firebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BNV-dq-aGC"/>
+                        <viewControllerLayoutGuide type="bottom" id="xqm-oE-wTN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="49s-Tb-G4H">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Ze1-Dm-lZz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROU-RH-Yuw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.0" green="0.71351613562091509" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="UjQ-IL-Of4">
+                                <rect key="frame" x="22.5" y="91" width="275" height="386"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slapchat_logo" translatesAutoresizingMaskIntoConstraints="NO" id="mSC-FR-RSP">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="275" id="6qc-Of-VCx"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="lYI-Cx-mJB">
+                                        <rect key="frame" x="22.5" y="122" width="230" height="264"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="F6b-tL-XKc">
+                                                <rect key="frame" x="0.0" y="0.0" width="230" height="160"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="lnh-87-2Er" customClass="FancyTextField" customModule="SnapChat_Firebase" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="40"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="OZh-K8-S3e"/>
+                                                            <constraint firstAttribute="width" constant="230" id="uHq-ph-tVy"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="20"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                                <color key="value" red="0.76078431372549016" green="0.95294117647058818" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Pk-kW-HoI" customClass="FancyTextField" customModule="SnapChat_Firebase" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="60" width="230" height="40"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="230" id="kfA-ok-oup"/>
+                                                            <constraint firstAttribute="height" constant="40" id="xth-Ee-SUL"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="20"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                                <color key="value" red="0.76078431372549016" green="0.95294117647058818" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Di1-MI-tQV" customClass="FancyButton" customModule="SnapChat_Firebase" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="120" width="230" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="230" id="YFP-bn-tKS"/>
+                                                            <constraint firstAttribute="height" constant="40" id="bKb-DJ-L9I"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                                        <state key="normal" title="Log In">
+                                                            <color key="titleColor" red="0.0" green="0.88235294117647056" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="20"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="loginButtonTapped:" destination="aq7-Az-Ap0" eventType="touchUpInside" id="JuQ-ff-iEg"/>
+                                                            <segue destination="BYZ-38-t0r" kind="show" id="NGH-sD-g0h"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZT-2F-M6K">
+                                                <rect key="frame" x="90" y="200" width="50" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="EZT-2F-M6K" secondAttribute="height" multiplier="7:9" id="cnu-s0-vrz"/>
+                                                    <constraint firstAttribute="width" constant="50" id="fUD-1Q-f2r"/>
+                                                </constraints>
+                                                <state key="normal" image="fingerPrint"/>
+                                                <connections>
+                                                    <action selector="fingerprintButtonTapped:" destination="aq7-Az-Ap0" eventType="touchUpInside" id="IEu-RZ-IZ2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ze1-Dm-lZz" secondAttribute="trailing" id="02B-S0-1aJ"/>
+                            <constraint firstItem="Ze1-Dm-lZz" firstAttribute="top" secondItem="49s-Tb-G4H" secondAttribute="top" id="MvI-rt-seY"/>
+                            <constraint firstItem="xqm-oE-wTN" firstAttribute="top" secondItem="Ze1-Dm-lZz" secondAttribute="bottom" id="Ofo-0t-y4T"/>
+                            <constraint firstItem="Ze1-Dm-lZz" firstAttribute="leading" secondItem="49s-Tb-G4H" secondAttribute="leading" id="T8R-ky-TjP"/>
+                            <constraint firstItem="ROU-RH-Yuw" firstAttribute="leading" secondItem="49s-Tb-G4H" secondAttribute="leading" id="Zrj-8v-3ao"/>
+                            <constraint firstItem="xqm-oE-wTN" firstAttribute="top" secondItem="ROU-RH-Yuw" secondAttribute="bottom" id="eF7-7h-sfc"/>
+                            <constraint firstItem="UjQ-IL-Of4" firstAttribute="centerY" secondItem="49s-Tb-G4H" secondAttribute="centerY" id="em1-LQ-tuU"/>
+                            <constraint firstItem="ROU-RH-Yuw" firstAttribute="top" secondItem="49s-Tb-G4H" secondAttribute="top" id="j93-Nb-hAf"/>
+                            <constraint firstAttribute="trailing" secondItem="ROU-RH-Yuw" secondAttribute="trailing" id="jBg-Jd-k0v"/>
+                            <constraint firstItem="UjQ-IL-Of4" firstAttribute="centerX" secondItem="49s-Tb-G4H" secondAttribute="centerX" id="k1X-ae-L7T"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="lnh-87-2Er" id="mOa-da-54s"/>
+                        <outlet property="passwordTextField" destination="1Pk-kW-HoI" id="KGq-YQ-5v7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Oa-Ga-imB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-501.60000000000002" y="-32.833583208395808"/>
+        </scene>
         <!--CameraVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -110,6 +260,7 @@
                         <outlet property="previewView" destination="KXB-oh-iBw" id="rTL-fZ-Rnv"/>
                         <outlet property="recordButton" destination="rRh-Gr-qjh" id="6zQ-Xu-yll"/>
                         <outlet property="resumeButton" destination="dCS-1O-mxF" id="v5B-qz-2Rh"/>
+                        <segue destination="aq7-Az-Ap0" kind="presentation" identifier="returnToSigninScreen" id="h0p-fA-s7o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -119,11 +270,14 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="122" y="-33"/>
+            <point key="canvasLocation" x="285" y="-34"/>
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="375" height="667"/>
         <image name="camera_icon_snap" width="29" height="24"/>
         <image name="createsnap_btn" width="30" height="30"/>
+        <image name="fingerPrint" width="63" height="81"/>
+        <image name="slapchat_logo" width="231" height="52"/>
     </resources>
 </document>

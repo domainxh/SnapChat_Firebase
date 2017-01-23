@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CameraVC: CameraViewController {
 
@@ -32,6 +33,22 @@ class CameraVC: CameraViewController {
         _captureModeControl = captureModeControl
         
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Verify tha that the user has successfully logged in.
+        
+        guard FIRAuth.auth()?.currentUser != nil else {
+            // Authentication failed, load login VC
+            
+//            self.view.removeFromSuperview()
+            
+            performSegue(withIdentifier: "returnToSigninScreen", sender: nil)
+            // Try different segues, like show, present modally and etc.
+            
+            return
+        }
+        
     }
 
     @IBAction func recordBtnTapped(_ sender: Any) { toggleMovieRecording() }
