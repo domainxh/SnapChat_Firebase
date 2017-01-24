@@ -26,29 +26,29 @@ class SignupVC: UIViewController {
     
     @IBAction func signupButtonTapped(_ sender: Any) {
         
-        //Ensure email & password textfield is not empty
-        guard let email = emailText.text, !email.isEmpty else {
-            print("The email field needs to be populated")
-            return
-        }
-        guard let password = passwordText.text, !password.isEmpty else {
-            print("The password field needs to be populated")
-            return
-        }
+        if let email = emailText.text, let password = passwordText.text, (email.characters.count > 0 && password.characters.count > 0) {
         
-//        createAccout(email: emailText.text!, password: passwordText.text!)
-        
-        let alert = UIAlertController(title: "Welcome to slapchat", message: "Your account was successfully created", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-        present(alert, animated: true) {
-            
-            self.removeAnimate()
+            AuthService.instance.createAccout(email: email, password: password) { (errorMessage, data) in
+                print("SignupVC errorMessage: \(errorMessage)")
+                if errorMessage == nil {
+                    let alert = UIAlertController(title: "Welcome to slapchat", message: "Your account was successfully created", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true) {
+                        self.removeAnimate()
+                    }
+                } else {
+                    let alert = UIAlertController(title: "Account can't be created", message: errorMessage, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+            }
+        } else {
+            let alert = UIAlertController(title: "Email and password required", message: "You must enter a valid email and password", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
-        
     }
-
-    
-
     
     func showAnimate() {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)

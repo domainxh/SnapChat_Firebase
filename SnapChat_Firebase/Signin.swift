@@ -13,12 +13,11 @@ class Signin: UIViewController {
 
     @IBOutlet weak var emailTextField: FancyTextField!
     @IBOutlet weak var passwordTextField: FancyTextField!
- 
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
     }
-    
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         

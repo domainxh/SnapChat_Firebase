@@ -36,11 +36,10 @@ class AuthService {
                 print("user created")
                 
                 if user?.uid != nil {
-                    
+                    DataService.instance.createFirebaseDBUser(uid: user!.uid)
                 }
             }
         })
-        
     }
     
     func errorHandling(error: NSError, onComplete: Completion?) {
@@ -50,17 +49,19 @@ class AuthService {
             
             switch errorCode {
             case .errorCodeInvalidEmail:
-                onComplete?("Invalid email address", nil)
-                break
+                onComplete?("The email address is badly formatted.", nil)
+//                break
             case .errorCodeWrongPassword:
                 onComplete?("Invalid password", nil)
-                break
+//                break
             case .errorCodeEmailAlreadyInUse, .errorCodeAccountExistsWithDifferentCredential:
                 onComplete?("Email already in use, a new account cannot be created", nil)
-                break
+//                break
             case .errorCodeUserNotFound:
                 onComplete?("User not found", nil)
-                break
+//                break
+            case .errorCodeWeakPassword:
+                onComplete?("The password must be 6 characters long or more", nil)
             default:
                 onComplete?("There was a problem, error: \(error)", nil)
             }
