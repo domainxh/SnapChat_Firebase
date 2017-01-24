@@ -36,12 +36,10 @@ class CameraVC: CameraViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // Verify tha that the user has successfully logged in.
+        // Verify tha that the user has successfully logged in. This guard statement needs to be here and not in the viewDidLoad because, viewDidLoad is called onetime right after all the items are loaded in memory, but not visible to the user. We can't laod another viewController on the screen until the view is visible to the user. Hence we need to do it after viewDidAppear.
         
         guard FIRAuth.auth()?.currentUser != nil else {
             // Authentication failed, load login VC
-            
-//            self.view.removeFromSuperview()
             
             performSegue(withIdentifier: "returnToSigninScreen", sender: nil)
             // Try different segues, like show, present modally and etc.

@@ -13,11 +13,13 @@
 		F72A4A131E2C01C400F7E7F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A111E2C01C400F7E7F1 /* Main.storyboard */; };
 		F72A4A151E2C01C400F7E7F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A141E2C01C400F7E7F1 /* Assets.xcassets */; };
 		F72A4A181E2C01C400F7E7F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A161E2C01C400F7E7F1 /* LaunchScreen.storyboard */; };
+		F755BF801E365BC80091F4EF /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755BF7F1E365BC70091F4EF /* SignupVC.swift */; };
+		F755BF821E3663910091F4EF /* FancySignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755BF811E3663910091F4EF /* FancySignupView.swift */; };
 		F7A417F91E3543C900739C48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7A417F81E3543C900739C48 /* GoogleService-Info.plist */; };
 		F7A417FB1E35611200739C48 /* FancyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A417FA1E35611200739C48 /* FancyTextField.swift */; };
 		F7A417FD1E35647400739C48 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A417FC1E35647400739C48 /* FancyButton.swift */; };
 		F7A417FF1E3579E900739C48 /* Signin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A417FE1E3579E900739C48 /* Signin.swift */; };
-		F7A418011E35AC7B00739C48 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A418001E35AC7B00739C48 /* DataService.swift */; };
+		F7A418011E35AC7B00739C48 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A418001E35AC7B00739C48 /* AuthService.swift */; };
 		F7C48D431E32FD7F0038F7ED /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D411E32FD7F0038F7ED /* PreviewView.swift */; };
 		F7C48D441E32FD7F0038F7ED /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */; };
 		F7C48D461E32FDEC0038F7ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D451E32FDEC0038F7ED /* CameraViewController.swift */; };
@@ -33,11 +35,13 @@
 		F72A4A141E2C01C400F7E7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72A4A171E2C01C400F7E7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F72A4A191E2C01C400F7E7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F755BF7F1E365BC70091F4EF /* SignupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		F755BF811E3663910091F4EF /* FancySignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancySignupView.swift; sourceTree = "<group>"; };
 		F7A417F81E3543C900739C48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7A417FA1E35611200739C48 /* FancyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyTextField.swift; sourceTree = "<group>"; };
 		F7A417FC1E35647400739C48 /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
 		F7A417FE1E3579E900739C48 /* Signin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signin.swift; sourceTree = "<group>"; };
-		F7A418001E35AC7B00739C48 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		F7A418001E35AC7B00739C48 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F7C48D411E32FD7F0038F7ED /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		F7C48D451E32FDEC0038F7ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -94,12 +98,12 @@
 		F72A4A0C1E2C01C400F7E7F1 /* SnapChat_Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				F755BF831E36CBD10091F4EF /* Services */,
 				F7C48D401E32FD6E0038F7ED /* AVCamera */,
 				F72A4A211E2C035100F7E7F1 /* Model */,
 				F72A4A201E2C034D00F7E7F1 /* View */,
 				F72A4A1F1E2C034100F7E7F1 /* Controller */,
 				F72A4A0D1E2C01C400F7E7F1 /* AppDelegate.swift */,
-				F7A418001E35AC7B00739C48 /* DataService.swift */,
 				F72A4A111E2C01C400F7E7F1 /* Main.storyboard */,
 				F72A4A141E2C01C400F7E7F1 /* Assets.xcassets */,
 				F72A4A161E2C01C400F7E7F1 /* LaunchScreen.storyboard */,
@@ -115,6 +119,7 @@
 				F7C48D451E32FDEC0038F7ED /* CameraViewController.swift */,
 				F72A4A0F1E2C01C400F7E7F1 /* CameraVC.swift */,
 				F7A417FE1E3579E900739C48 /* Signin.swift */,
+				F755BF7F1E365BC70091F4EF /* SignupVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 				F7C48D411E32FD7F0038F7ED /* PreviewView.swift */,
 				F7A417FA1E35611200739C48 /* FancyTextField.swift */,
 				F7A417FC1E35647400739C48 /* FancyButton.swift */,
+				F755BF811E3663910091F4EF /* FancySignupView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -134,6 +140,14 @@
 			children = (
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		F755BF831E36CBD10091F4EF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F7A418001E35AC7B00739C48 /* AuthService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		F7C48D401E32FD6E0038F7ED /* AVCamera */ = {
@@ -269,12 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7A418011E35AC7B00739C48 /* DataService.swift in Sources */,
+				F7A418011E35AC7B00739C48 /* AuthService.swift in Sources */,
 				F72A4A101E2C01C400F7E7F1 /* CameraVC.swift in Sources */,
 				F7C48D461E32FDEC0038F7ED /* CameraViewController.swift in Sources */,
 				F72A4A0E1E2C01C400F7E7F1 /* AppDelegate.swift in Sources */,
+				F755BF821E3663910091F4EF /* FancySignupView.swift in Sources */,
 				F7A417FD1E35647400739C48 /* FancyButton.swift in Sources */,
 				F7A417FB1E35611200739C48 /* FancyTextField.swift in Sources */,
+				F755BF801E365BC80091F4EF /* SignupVC.swift in Sources */,
 				F7C48D441E32FD7F0038F7ED /* PhotoCaptureDelegate.swift in Sources */,
 				F7C48D431E32FD7F0038F7ED /* PreviewView.swift in Sources */,
 				F7A417FF1E3579E900739C48 /* Signin.swift in Sources */,

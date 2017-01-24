@@ -22,13 +22,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Ze1-Dm-lZz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slap" translatesAutoresizingMaskIntoConstraints="NO" id="Ze1-Dm-lZz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROU-RH-Yuw">
+                            <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROU-RH-Yuw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.0" green="0.71351613562091509" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.25450111040609136" green="0.25450111040609136" blue="0.25450111040609136" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vid-eT-iZv">
+                                <rect key="frame" x="56" y="539" width="207" height="29"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBv-I0-eE6">
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="29"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeG-Tu-dA3">
+                                        <rect key="frame" x="156" y="0.0" width="51" height="29"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
+                                        <state key="normal" title="Sign Up! ">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signupButtonTapped:" destination="aq7-Az-Ap0" eventType="touchUpInside" id="vD6-tt-fz3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="UjQ-IL-Of4">
                                 <rect key="frame" x="22.5" y="91" width="275" height="386"/>
                                 <subviews>
@@ -142,9 +164,11 @@
                             <constraint firstItem="Ze1-Dm-lZz" firstAttribute="top" secondItem="49s-Tb-G4H" secondAttribute="top" id="MvI-rt-seY"/>
                             <constraint firstItem="xqm-oE-wTN" firstAttribute="top" secondItem="Ze1-Dm-lZz" secondAttribute="bottom" id="Ofo-0t-y4T"/>
                             <constraint firstItem="Ze1-Dm-lZz" firstAttribute="leading" secondItem="49s-Tb-G4H" secondAttribute="leading" id="T8R-ky-TjP"/>
+                            <constraint firstItem="vid-eT-iZv" firstAttribute="centerX" secondItem="49s-Tb-G4H" secondAttribute="centerX" id="UKt-Nf-G8h"/>
                             <constraint firstItem="ROU-RH-Yuw" firstAttribute="leading" secondItem="49s-Tb-G4H" secondAttribute="leading" id="Zrj-8v-3ao"/>
                             <constraint firstItem="xqm-oE-wTN" firstAttribute="top" secondItem="ROU-RH-Yuw" secondAttribute="bottom" id="eF7-7h-sfc"/>
                             <constraint firstItem="UjQ-IL-Of4" firstAttribute="centerY" secondItem="49s-Tb-G4H" secondAttribute="centerY" id="em1-LQ-tuU"/>
+                            <constraint firstItem="xqm-oE-wTN" firstAttribute="top" secondItem="vid-eT-iZv" secondAttribute="bottom" id="hf6-LD-tkh"/>
                             <constraint firstItem="ROU-RH-Yuw" firstAttribute="top" secondItem="49s-Tb-G4H" secondAttribute="top" id="j93-Nb-hAf"/>
                             <constraint firstAttribute="trailing" secondItem="ROU-RH-Yuw" secondAttribute="trailing" id="jBg-Jd-k0v"/>
                             <constraint firstItem="UjQ-IL-Of4" firstAttribute="centerX" secondItem="49s-Tb-G4H" secondAttribute="centerX" id="k1X-ae-L7T"/>
@@ -157,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Oa-Ga-imB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-501.60000000000002" y="-32.833583208395808"/>
+            <point key="canvasLocation" x="-502.5" y="-33.802816901408448"/>
         </scene>
         <!--CameraVC-->
         <scene sceneID="tne-QT-ifu">
@@ -272,12 +296,171 @@
             </objects>
             <point key="canvasLocation" x="285" y="-34"/>
         </scene>
+        <!--SignupVC-->
+        <scene sceneID="Px3-0d-YxW">
+            <objects>
+                <viewController storyboardIdentifier="SignupVC_SB_ID" id="WvV-e0-F4K" customClass="SignupVC" customModule="SnapChat_Firebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R2k-95-Mkd"/>
+                        <viewControllerLayoutGuide type="bottom" id="BgA-6O-1L4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PT1-33-59X">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRC-9G-43v" customClass="FancySignupView" customModule="SnapChat_Firebase" customModuleProvider="target">
+                                <rect key="frame" x="40" y="134" width="240" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP WITH EMAIL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMk-V5-R6b">
+                                        <rect key="frame" x="30" y="27" width="180" height="23.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="aW5-3Q-Tht"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="T2e-tM-jx2">
+                                        <rect key="frame" x="205" y="5" width="30" height="30"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="7Jg-yv-UKd"/>
+                                            <constraint firstAttribute="height" constant="30" id="F9Q-fn-yZy"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Zgm-42-Cfy" appends="YES" id="FO1-Cf-21G"/>
+                                        </connections>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gND-5C-XSR">
+                                        <rect key="frame" x="30" y="116.5" width="180" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="IGM-aU-ATC"/>
+                                            <constraint firstAttribute="height" constant="1" id="JwW-sc-drg"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94v-Rm-6AQ">
+                                        <rect key="frame" x="30" y="167.5" width="180" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="Ur3-5B-JND"/>
+                                            <constraint firstAttribute="height" constant="1" id="uyn-li-Xdk"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password " textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-3d-9Mv" customClass="FancyTextField" customModule="SnapChat_Firebase" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="137.5" width="180" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="5Wh-in-CcA"/>
+                                            <constraint firstAttribute="width" constant="180" id="Qji-3n-pdo"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWq-wB-ywD" customClass="FancyTextField" customModule="SnapChat_Firebase" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="90.5" width="180" height="26"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="dkS-j0-7be"/>
+                                            <constraint firstAttribute="height" constant="26" id="eo7-Oh-TqU"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZzP-NU-kwk" customClass="FancyButton" customModule="SnapChat_Firebase" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="219" width="180" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="89m-7D-xAB"/>
+                                            <constraint firstAttribute="width" constant="180" id="OHv-rC-9Mk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                        <state key="normal" title="CONFIRM">
+                                            <color key="titleColor" red="0.17597953680203049" green="0.17597953680203049" blue="0.17597953680203049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signupButtonTapped:" destination="WvV-e0-F4K" eventType="touchUpInside" id="Vk2-XN-yN3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.33165450507614214" green="0.33165450507614214" blue="0.33165450507614214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ZzP-NU-kwk" firstAttribute="top" secondItem="94v-Rm-6AQ" secondAttribute="bottom" constant="50" id="1ye-TT-vIf"/>
+                                    <constraint firstItem="ZzP-NU-kwk" firstAttribute="centerX" secondItem="HRC-9G-43v" secondAttribute="centerX" id="Axd-PQ-4j6"/>
+                                    <constraint firstItem="94v-Rm-6AQ" firstAttribute="top" secondItem="QAx-3d-9Mv" secondAttribute="bottom" id="Dnw-eb-yEt"/>
+                                    <constraint firstItem="OMk-V5-R6b" firstAttribute="top" secondItem="HRC-9G-43v" secondAttribute="top" constant="27" id="GwR-cw-7vu"/>
+                                    <constraint firstItem="94v-Rm-6AQ" firstAttribute="centerX" secondItem="HRC-9G-43v" secondAttribute="centerX" id="OIQ-Zn-N9K"/>
+                                    <constraint firstItem="gND-5C-XSR" firstAttribute="top" secondItem="aWq-wB-ywD" secondAttribute="bottom" id="PLq-7d-Cfh"/>
+                                    <constraint firstItem="T2e-tM-jx2" firstAttribute="top" secondItem="HRC-9G-43v" secondAttribute="top" constant="5" id="VKq-cT-gTH"/>
+                                    <constraint firstItem="OMk-V5-R6b" firstAttribute="centerX" secondItem="HRC-9G-43v" secondAttribute="centerX" id="bgM-2W-yuc"/>
+                                    <constraint firstAttribute="width" constant="240" id="bzE-Bg-hfP"/>
+                                    <constraint firstItem="QAx-3d-9Mv" firstAttribute="centerX" secondItem="HRC-9G-43v" secondAttribute="centerX" id="dGs-hh-hZj"/>
+                                    <constraint firstItem="aWq-wB-ywD" firstAttribute="top" secondItem="OMk-V5-R6b" secondAttribute="bottom" constant="40" id="j80-mr-Ben"/>
+                                    <constraint firstAttribute="height" constant="300" id="lZO-jJ-dV4"/>
+                                    <constraint firstItem="QAx-3d-9Mv" firstAttribute="top" secondItem="gND-5C-XSR" secondAttribute="bottom" constant="20" id="m4Z-29-bKp"/>
+                                    <constraint firstAttribute="trailing" secondItem="T2e-tM-jx2" secondAttribute="trailing" constant="5" id="rH1-N5-7D0"/>
+                                    <constraint firstItem="aWq-wB-ywD" firstAttribute="centerX" secondItem="HRC-9G-43v" secondAttribute="centerX" id="wfJ-OC-r0R"/>
+                                    <constraint firstItem="gND-5C-XSR" firstAttribute="centerX" secondItem="HRC-9G-43v" secondAttribute="centerX" id="zxf-3h-FJO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HRC-9G-43v" firstAttribute="centerY" secondItem="PT1-33-59X" secondAttribute="centerY" id="TU1-5I-bnm"/>
+                            <constraint firstItem="HRC-9G-43v" firstAttribute="centerX" secondItem="PT1-33-59X" secondAttribute="centerX" id="g5G-Qt-Wzo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailText" destination="aWq-wB-ywD" id="Rz7-xf-RcH"/>
+                        <outlet property="passwordText" destination="QAx-3d-9Mv" id="qmj-Ik-8Ng"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v74-ZK-pMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Zgm-42-Cfy">
+                    <connections>
+                        <action selector="cancelButtonPressed:" destination="WvV-e0-F4K" id="Fvv-ol-zJJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-502.5" y="641.19718309859161"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="background" width="375" height="667"/>
         <image name="camera_icon_snap" width="29" height="24"/>
+        <image name="cancel" width="54" height="54"/>
         <image name="createsnap_btn" width="30" height="30"/>
         <image name="fingerPrint" width="63" height="81"/>
+        <image name="slap" width="369" height="560"/>
         <image name="slapchat_logo" width="231" height="52"/>
     </resources>
 </document>
