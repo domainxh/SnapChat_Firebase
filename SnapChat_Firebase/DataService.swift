@@ -36,4 +36,18 @@ class DataService {
         let profile: Dictionary<String, AnyObject> = ["firstname" : "" as AnyObject, "lastname" : "" as AnyObject]
         DataBaseRef.child("users").child(uid).child("profile").setValue(profile)
     }
+    
+    func sendMediaPullRequest(senderUID: String, sendingTo: Dictionary<String, User>, mediaURL: URL, textSnippet: String? = nil) {
+        // Two types: one for chat messages, the other one for media(video/photo)
+        
+        var uids = [String]()
+        for uid in sendingTo.keys {
+            uids.append(uid)
+        }
+        
+        let pullRequest: Dictionary<String, AnyObject> = ["mediaURL": mediaURL.absoluteString as AnyObject, "senderUID": senderUID as AnyObject, "openCount": 0 as AnyObject, "recipients": uids as AnyObject]
+        
+        DataBaseRef.child("pullRequests").childByAutoId().setValue(pullRequest)
+    }
+    
 }

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class UsersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -114,10 +115,12 @@ class UsersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 } else {
                     // Once the data is successfully uploaded to FB, it will create a downloadable URL for you so you can give it to other users.
                     let downloadURL = meta?.downloadURL() // Save this somewhere, work on it on my freetime
+                    DataService.instance.sendMediaPullRequest(senderUID: FIRAuth.auth()!.currentUser!.uid, sendingTo: self.selectedUsers, mediaURL: downloadURL!, textSnippet: "Coding today was legit!")
                     print(downloadURL)
-                    self.dismiss(animated: true, completion: nil)
+                    // self.dismiss(animated: true, completion: nil)
                 }
             })
+            self.dismiss(animated: true, completion: nil) // we're leaving it here because if you leave it in the if statement, it's asyncronous so it will take a while to get to it. By leaving it here... we will dismiss the screen right after hitting the button, therefore making it look like it was instant.
         } else if let snap = _snapData {
             let imageName = "\(NSUUID().uuidString).jpg"
             let ref = DataService.instance.imageStorageRef.child(imageName)
@@ -127,10 +130,9 @@ class UsersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     print("Error uploading snapshot: \(error?.localizedDescription)")
                 } else {
                     let downloadURL = meta!.downloadURL()
-                    self.dismiss(animated: true, completion: nil)
                 }
             })
-            
+            self.dismiss(animated: true, completion: nil)
             
         }
         
