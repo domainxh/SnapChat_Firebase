@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2E3D1F74620F28F8E14E28F7 /* Pods_SnapChat_Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF9BAB948667E1ED2FD816F0 /* Pods_SnapChat_Firebase.framework */; };
 		F72A4A0E1E2C01C400F7E7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A4A0D1E2C01C400F7E7F1 /* AppDelegate.swift */; };
-		F72A4A101E2C01C400F7E7F1 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A4A0F1E2C01C400F7E7F1 /* CameraVC.swift */; };
 		F72A4A131E2C01C400F7E7F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A111E2C01C400F7E7F1 /* Main.storyboard */; };
 		F72A4A151E2C01C400F7E7F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A141E2C01C400F7E7F1 /* Assets.xcassets */; };
 		F72A4A181E2C01C400F7E7F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A161E2C01C400F7E7F1 /* LaunchScreen.storyboard */; };
@@ -26,7 +25,7 @@
 		F7A418011E35AC7B00739C48 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A418001E35AC7B00739C48 /* AuthService.swift */; };
 		F7C48D431E32FD7F0038F7ED /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D411E32FD7F0038F7ED /* PreviewView.swift */; };
 		F7C48D441E32FD7F0038F7ED /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */; };
-		F7C48D461E32FDEC0038F7ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D451E32FDEC0038F7ED /* CameraViewController.swift */; };
+		F7C48D461E32FDEC0038F7ED /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D451E32FDEC0038F7ED /* CameraVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +33,6 @@
 		C6597B9965836EED88E3D5B1 /* Pods-SnapChat_Firebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapChat_Firebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapChat_Firebase/Pods-SnapChat_Firebase.debug.xcconfig"; sourceTree = "<group>"; };
 		F72A4A0A1E2C01C400F7E7F1 /* SnapChat_Firebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapChat_Firebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72A4A0D1E2C01C400F7E7F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F72A4A0F1E2C01C400F7E7F1 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		F72A4A121E2C01C400F7E7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F72A4A141E2C01C400F7E7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72A4A171E2C01C400F7E7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +50,7 @@
 		F7A418001E35AC7B00739C48 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F7C48D411E32FD7F0038F7ED /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
-		F7C48D451E32FDEC0038F7ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		F7C48D451E32FDEC0038F7ED /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		FF9BAB948667E1ED2FD816F0 /* Pods_SnapChat_Firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapChat_Firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,8 +123,7 @@
 		F72A4A1F1E2C034100F7E7F1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F7C48D451E32FDEC0038F7ED /* CameraViewController.swift */,
-				F72A4A0F1E2C01C400F7E7F1 /* CameraVC.swift */,
+				F7C48D451E32FDEC0038F7ED /* CameraVC.swift */,
 				F7A417FE1E3579E900739C48 /* Signin.swift */,
 				F755BF7F1E365BC70091F4EF /* SignupVC.swift */,
 				F7806E951E37A15300E8AAB7 /* UsersVC.swift */,
@@ -296,8 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7A418011E35AC7B00739C48 /* AuthService.swift in Sources */,
-				F72A4A101E2C01C400F7E7F1 /* CameraVC.swift in Sources */,
-				F7C48D461E32FDEC0038F7ED /* CameraViewController.swift in Sources */,
+				F7C48D461E32FDEC0038F7ED /* CameraVC.swift in Sources */,
 				F7806E941E36FB7000E8AAB7 /* DataService.swift in Sources */,
 				F72A4A0E1E2C01C400F7E7F1 /* AppDelegate.swift in Sources */,
 				F755BF821E3663910091F4EF /* FancySignupView.swift in Sources */,
