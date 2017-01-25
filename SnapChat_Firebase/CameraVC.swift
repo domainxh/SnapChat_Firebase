@@ -36,7 +36,7 @@ class CameraVC: CameraViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // Verify tha that the user has successfully logged in. This guard statement needs to be here and not in the viewDidLoad because, viewDidLoad is called onetime right after all the items are loaded in memory, but not visible to the user. We can't laod another viewController on the screen until the view is visible to the user. Hence we need to do it after viewDidAppear.
+        // Verify that the user has successfully logged in. This guard statement needs to be here and not in the viewDidLoad because, viewDidLoad is called onetime right after all the items are loaded in memory, but not visible to the user. We can't laod another viewController on the screen until the view is visible to the user. Hence we need to do it after viewDidAppear.
         
         guard FIRAuth.auth()?.currentUser != nil else {
             // Authentication failed, load login VC
@@ -49,6 +49,28 @@ class CameraVC: CameraViewController {
         
     }
 
+    // need to impliment these two functions inside of cameraViewController 
+//    func videoRecordingComplete(_ videoURL: URL!) {
+//        performSegue(withIdentifier: "UsersVC", sender: ["videoURL": videoURL])
+//    }
+//    
+//    func snapshotTaken(_ snapshotData: Data!) {
+//        performSegue(withIdentifier: "UsersVC", sender: ["snapshotData" : snapshotData])
+//    }
+//    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let usersVC = segue.destination as? UsersVC {
+//            if let videoDict = sender as? Dictionary<String, URL> {
+//                let url = videoDict["videoURL"]
+//                usersVC.videoURL = url
+//            } else if let snapDict = sender as? Dictionary<String, Data> {
+//                let snapData = snapDict["snapshotData"]
+//                usersVC.snapData = snapData
+//            }
+//        }
+//    }
+    
+    
     @IBAction func recordBtnTapped(_ sender: Any) { toggleMovieRecording() }
     @IBAction func changeCamBtnTapped(_ sender: Any) { changeCamera() }
     @IBAction func capturePhoto(_ sender: Any) { capturePhoto() }

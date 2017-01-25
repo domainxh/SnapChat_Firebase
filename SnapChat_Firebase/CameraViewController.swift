@@ -723,27 +723,33 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 		}
 		
 		if success {
+            // We want the video to be uploaded directly to firebase instead of saving on the device, hencing commenting out this portion of the code.
 			// Check authorization status.
-			PHPhotoLibrary.requestAuthorization { status in
-				if status == .authorized {
-					// Save the movie file to the photo library and cleanup.
-					PHPhotoLibrary.shared().performChanges({
-							let options = PHAssetResourceCreationOptions()
-							options.shouldMoveFile = true
-							let creationRequest = PHAssetCreationRequest.forAsset()
-							creationRequest.addResource(with: .video, fileURL: outputFileURL, options: options)
-						}, completionHandler: { success, error in
-							if !success {
-								print("Could not save movie to photo library: \(error)")
-							}
-							cleanup()
-						}
-					)
-				}
-				else {
-					cleanup()
-				}
-			}
+            
+//            let cameraVC = CameraVC()
+//            cameraVC.videoRecordingComplete(outputFileURL)
+            videoRecordingComplete(outputFileURL)
+            
+//			PHPhotoLibrary.requestAuthorization { status in
+//				if status == .authorized {
+//					// Save the movie file to the photo library and cleanup.
+//					PHPhotoLibrary.shared().performChanges({
+//							let options = PHAssetResourceCreationOptions()
+//							options.shouldMoveFile = true
+//							let creationRequest = PHAssetCreationRequest.forAsset()
+//							creationRequest.addResource(with: .video, fileURL: outputFileURL, options: options)
+//						}, completionHandler: { success, error in
+//							if !success {
+//								print("Could not save movie to photo library: \(error)")
+//							}
+//							cleanup()
+//						}
+//					)
+//				}
+//				else {
+//					cleanup()
+//				}
+//			}
 		}
 		else {
 			cleanup()
@@ -903,6 +909,29 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 			)
 		}
 	}
+    
+    
+    
+    func videoRecordingComplete(_ videoURL: URL!) {
+        performSegue(withIdentifier: "UsersVC", sender: ["videoURL": videoURL])
+    }
+    
+    func snapshotTaken(_ snapshotData: Data!) {
+        performSegue(withIdentifier: "UsersVC", sender: ["snapshotData" : snapshotData])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let usersVC = segue.destination as? UsersVC {
+            if let videoDict = sender as? Dictionary<String, URL> {
+                let url = videoDict["videoURL"]
+                usersVC.videoURL = url
+            } else if let snapDict = sender as? Dictionary<String, Data> {
+                let snapData = snapDict["snapshotData"]
+                usersVC.snapData = snapData
+            }
+        }
+    }
+    
 }
 
 extension UIDeviceOrientation {

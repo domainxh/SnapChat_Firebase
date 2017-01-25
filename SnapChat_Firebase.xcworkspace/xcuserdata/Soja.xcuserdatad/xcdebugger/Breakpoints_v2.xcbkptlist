@@ -26,7 +26,7 @@
                   moduleName = "SnapChat_Firebase"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Soja/Documents/Swift/Udemy/SnapChat_Firebase/SnapChat_Firebase/SignupVC.swift"
-                  timestampString = "506961665.582649"
+                  timestampString = "507062205.790658"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "36"
@@ -41,7 +41,7 @@
                   moduleName = "SnapChat_Firebase"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Soja/Documents/Swift/Udemy/SnapChat_Firebase/SnapChat_Firebase/SignupVC.swift"
-                  timestampString = "506961665.589775"
+                  timestampString = "507062205.793162"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "37"
@@ -90,7 +90,7 @@
                   moduleName = "SnapChat_Firebase"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Soja/Documents/Swift/Udemy/SnapChat_Firebase/SnapChat_Firebase/SignupVC.swift"
-                  timestampString = "506961665.601669"
+                  timestampString = "507062205.803132"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -105,7 +105,7 @@
                   moduleName = "SnapChat_Firebase"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Soja/Documents/Swift/Udemy/SnapChat_Firebase/SnapChat_Firebase/SignupVC.swift"
-                  timestampString = "506961665.604009"
+                  timestampString = "507062205.806135"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
@@ -401,6 +401,102 @@
             endingLineNumber = "24"
             landmarkName = "loginButtonTapped(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SnapChat_Firebase/CameraViewController.swift"
+            timestampString = "507061894.258942"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "729"
+            endingLineNumber = "729"
+            landmarkName = "capture(_:didFinishRecordingToOutputFileAt:fromConnections:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SnapChat_Firebase/CameraViewController.swift"
+            timestampString = "507062204.159044"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "730"
+            endingLineNumber = "730"
+            landmarkName = "capture(_:didFinishRecordingToOutputFileAt:fromConnections:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SnapChat_Firebase/CameraViewController.swift"
+            timestampString = "507061896.594376"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "725"
+            endingLineNumber = "725"
+            landmarkName = "capture(_:didFinishRecordingToOutputFileAt:fromConnections:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SnapChat_Firebase/CameraVC.swift"
+            timestampString = "507061903.979363"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "CameraVC"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SnapChat_Firebase/CameraVC.swift"
+            timestampString = "507061905.389255"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "CameraVC"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SnapChat_Firebase/CameraVC.swift"
+            timestampString = "507061907.033444"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "CameraVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aq7-Az-Ap0">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,19 +19,19 @@
                         <viewControllerLayoutGuide type="bottom" id="xqm-oE-wTN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="49s-Tb-G4H">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slap" translatesAutoresizingMaskIntoConstraints="NO" id="Ze1-Dm-lZz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROU-RH-Yuw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.25450111040609136" green="0.25450111040609136" blue="0.25450111040609136" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vid-eT-iZv">
-                                <rect key="frame" x="56" y="539" width="207" height="29"/>
+                                <rect key="frame" x="84" y="638" width="207" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBv-I0-eE6">
                                         <rect key="frame" x="0.0" y="0.0" width="151" height="29"/>
@@ -52,7 +52,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="UjQ-IL-Of4">
-                                <rect key="frame" x="22.5" y="91" width="275" height="386"/>
+                                <rect key="frame" x="50" y="140.5" width="275" height="386"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slapchat_logo" translatesAutoresizingMaskIntoConstraints="NO" id="mSC-FR-RSP">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="52"/>
@@ -192,11 +192,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXB-oh-iBw" userLabel="PreviewView" customClass="PreviewView" customModule="SnapChat_Firebase" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRh-Gr-qjh">
                                         <rect key="frame" x="131" y="495" width="59" height="59"/>
@@ -285,6 +285,7 @@
                         <outlet property="recordButton" destination="rRh-Gr-qjh" id="6zQ-Xu-yll"/>
                         <outlet property="resumeButton" destination="dCS-1O-mxF" id="v5B-qz-2Rh"/>
                         <segue destination="aq7-Az-Ap0" kind="presentation" identifier="returnToSigninScreen" id="h0p-fA-s7o"/>
+                        <segue destination="JvC-cc-PTj" kind="show" identifier="UsersVC" id="xmH-mZ-Vzq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -296,6 +297,96 @@
             </objects>
             <point key="canvasLocation" x="285" y="-34"/>
         </scene>
+        <!--UsersVC-->
+        <scene sceneID="vgh-jB-hIa">
+            <objects>
+                <viewController id="JvC-cc-PTj" customClass="UsersVC" customModule="SnapChat_Firebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9ll-Nb-Cbb"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xpn-M2-SES"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="isR-3o-ydS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fns-AQ-Yeu">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="ewA-E8-330" customClass="UserCell" customModule="SnapChat_Firebase" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewA-E8-330" id="goJ-1W-VZI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrX-c0-UcK">
+                                                    <rect key="frame" x="20" y="11" width="233" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="2ST-bE-r3U"/>
+                                                        <constraint firstAttribute="width" constant="233" id="xCf-Zy-vkP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MrX-c0-UcK" firstAttribute="leading" secondItem="goJ-1W-VZI" secondAttribute="leading" constant="20" id="MrT-dw-HGa"/>
+                                                <constraint firstItem="MrX-c0-UcK" firstAttribute="centerY" secondItem="goJ-1W-VZI" secondAttribute="centerY" id="rqs-C7-stL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="firstnameLabel" destination="MrX-c0-UcK" id="8LG-35-uTQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPy-h7-4K9">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="u9T-cS-4ha"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Send a pull request" id="iQL-b5-DN0">
+                                        <barButtonItem key="rightBarButtonItem" image="send_snap" id="Wt3-pW-9RS">
+                                            <connections>
+                                                <action selector="sendPullReqPressed:" destination="JvC-cc-PTj" id="VG4-RO-rpc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="ylu-FH-o8M">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rt6-tB-456"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WPy-h7-4K9" secondAttribute="trailing" id="1fz-Oi-6vC"/>
+                            <constraint firstItem="fns-AQ-Yeu" firstAttribute="top" secondItem="ylu-FH-o8M" secondAttribute="bottom" id="PyJ-t2-9Wr"/>
+                            <constraint firstAttribute="trailing" secondItem="ylu-FH-o8M" secondAttribute="trailing" id="RGO-Du-uUd"/>
+                            <constraint firstItem="Xpn-M2-SES" firstAttribute="top" secondItem="fns-AQ-Yeu" secondAttribute="bottom" id="VwC-4Y-K8v"/>
+                            <constraint firstItem="WPy-h7-4K9" firstAttribute="top" secondItem="isR-3o-ydS" secondAttribute="top" constant="20" id="WBQ-sE-sCe"/>
+                            <constraint firstItem="ylu-FH-o8M" firstAttribute="leading" secondItem="isR-3o-ydS" secondAttribute="leading" id="Zfx-5E-k6d"/>
+                            <constraint firstItem="fns-AQ-Yeu" firstAttribute="leading" secondItem="isR-3o-ydS" secondAttribute="leading" id="d9X-8f-et7"/>
+                            <constraint firstItem="WPy-h7-4K9" firstAttribute="leading" secondItem="isR-3o-ydS" secondAttribute="leading" id="hln-hD-O5B"/>
+                            <constraint firstAttribute="trailing" secondItem="fns-AQ-Yeu" secondAttribute="trailing" id="llW-b9-ZTt"/>
+                            <constraint firstItem="ylu-FH-o8M" firstAttribute="top" secondItem="WPy-h7-4K9" secondAttribute="bottom" id="yAQ-4g-e3m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="fns-AQ-Yeu" id="pcC-Hb-oC6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kpO-eI-eJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="-35"/>
+        </scene>
         <!--SignupVC-->
         <scene sceneID="Px3-0d-YxW">
             <objects>
@@ -305,11 +396,11 @@
                         <viewControllerLayoutGuide type="bottom" id="BgA-6O-1L4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PT1-33-59X">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRC-9G-43v" customClass="FancySignupView" customModule="SnapChat_Firebase" customModuleProvider="target">
-                                <rect key="frame" x="40" y="134" width="240" height="300"/>
+                                <rect key="frame" x="67.5" y="183.5" width="240" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP WITH EMAIL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMk-V5-R6b">
                                         <rect key="frame" x="30" y="27" width="180" height="23.5"/>
@@ -460,6 +551,7 @@
         <image name="cancel" width="54" height="54"/>
         <image name="createsnap_btn" width="30" height="30"/>
         <image name="fingerPrint" width="63" height="81"/>
+        <image name="send_snap" width="24" height="23"/>
         <image name="slap" width="369" height="560"/>
         <image name="slapchat_logo" width="231" height="52"/>
     </resources>
