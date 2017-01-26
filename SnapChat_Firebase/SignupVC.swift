@@ -9,15 +9,39 @@
 import UIKit
 import Firebase
 
-class SignupVC: UIViewController {
+class SignupVC: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var emailText: FancyTextField!
-    @IBOutlet weak var passwordText: FancyTextField!
+    @IBOutlet weak var emailTextField: FancyTextField!
+    @IBOutlet weak var passwordTextField: FancyTextField!
+    @IBOutlet weak var fullnameTextField: FancyTextField!
+    @IBOutlet weak var userImage: ProfileImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8) // alternatively use blur
+        
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        
+        if !UIAccessibilityIsReduceTransparencyEnabled() {
+            self.view.backgroundColor = UIColor.clear
+            
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+            self.view.insertSubview(blurEffectView, at: 0)
+            
+        } else {
+            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        }
+        
         showAnimate()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
     }
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -26,27 +50,30 @@ class SignupVC: UIViewController {
     
     @IBAction func signupButtonTapped(_ sender: Any) {
         
-        if let email = emailText.text, let password = passwordText.text, (email.characters.count > 0 && password.characters.count > 0) {
-        
+        if let email = emailTextField.text, let password = passwordTextField.text, (email.characters.count > 0 && password.characters.count > 0) {
+            
             AuthService.instance.createAccout(email: email, password: password) { (errorMessage, data) in
-                print("SignupVC errorMessage: \(errorMessage)")
+                
                 if errorMessage == nil {
-                    let alert = UIAlertController(title: "Welcome to slapchat", message: "Your account was successfully created", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true) {
+                    let alert = UIAlertController(title: "Welcome to slapchat", message: "Your account was successfully created", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default) { (random) in
                         self.removeAnimate()
-                    }
+                    })
+                    
+                    self.present(alert, animated: true)
+                    
                 } else {
                     let alert = UIAlertController(title: "Account can't be created", message: errorMessage, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                    self.present(alert, animated: true)
                     return
                 }
             }
+            
         } else {
             let alert = UIAlertController(title: "Email and password required", message: "You must enter a valid email and password", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil))
-            present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            present(alert, animated: true)
         }
     }
     
