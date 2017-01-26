@@ -12,6 +12,7 @@
 		F72A4A131E2C01C400F7E7F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A111E2C01C400F7E7F1 /* Main.storyboard */; };
 		F72A4A151E2C01C400F7E7F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A141E2C01C400F7E7F1 /* Assets.xcassets */; };
 		F72A4A181E2C01C400F7E7F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72A4A161E2C01C400F7E7F1 /* LaunchScreen.storyboard */; };
+		F72D37471E3AA98200987D6F /* FancyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D37461E3AA98200987D6F /* FancyScrollView.swift */; };
 		F755BF801E365BC80091F4EF /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755BF7F1E365BC70091F4EF /* SignupVC.swift */; };
 		F755BF821E3663910091F4EF /* FancySignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755BF811E3663910091F4EF /* FancySignupView.swift */; };
 		F7763F231E3A31D1005188BD /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7763F221E3A31D1005188BD /* ProfileImage.swift */; };
@@ -38,6 +39,7 @@
 		F72A4A141E2C01C400F7E7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72A4A171E2C01C400F7E7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F72A4A191E2C01C400F7E7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F72D37461E3AA98200987D6F /* FancyScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyScrollView.swift; sourceTree = "<group>"; };
 		F755BF7F1E365BC70091F4EF /* SignupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		F755BF811E3663910091F4EF /* FancySignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancySignupView.swift; sourceTree = "<group>"; };
 		F7763F221E3A31D1005188BD /* ProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				F755BF811E3663910091F4EF /* FancySignupView.swift */,
 				F7806E971E37A27000E8AAB7 /* UserCell.swift */,
 				F7763F221E3A31D1005188BD /* ProfileImage.swift */,
+				F72D37461E3AA98200987D6F /* FancyScrollView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				F7A417FB1E35611200739C48 /* FancyTextField.swift in Sources */,
 				F755BF801E365BC80091F4EF /* SignupVC.swift in Sources */,
 				F7806E961E37A15300E8AAB7 /* UsersVC.swift in Sources */,
+				F72D37471E3AA98200987D6F /* FancyScrollView.swift in Sources */,
 				F7C48D441E32FD7F0038F7ED /* PhotoCaptureDelegate.swift in Sources */,
 				F7C48D431E32FD7F0038F7ED /* PreviewView.swift in Sources */,
 				F7763F231E3A31D1005188BD /* ProfileImage.swift in Sources */,

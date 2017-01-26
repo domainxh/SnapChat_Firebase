@@ -14,6 +14,8 @@ class ProfileImage: UIImageView {
         super.layoutSubviews()
         
         layer.cornerRadius = self.frame.width / 2
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.white.cgColor
         clipsToBounds = true
     }
 

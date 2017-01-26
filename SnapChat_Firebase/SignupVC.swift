@@ -9,18 +9,38 @@
 import UIKit
 import Firebase
 
-class SignupVC: UIViewController, UITextFieldDelegate {
+class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var emailTextField: FancyTextField!
     @IBOutlet weak var passwordTextField: FancyTextField!
     @IBOutlet weak var fullnameTextField: FancyTextField!
     @IBOutlet weak var userImage: ProfileImage!
+    @IBOutlet weak var scrollView: FancyScrollView!
+    
+    var activeField: UITextField?
+    var imagePicker: UIImagePickerController!
+    
+    // Need to add/remove keyboardObserver upon initiation/deinitiation of the view.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.registerForKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.deregisterFromKeyboardNotifications()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        fullnameTextField.delegate = self
+        scrollView.delegate = self
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         if !UIAccessibilityIsReduceTransparencyEnabled() {
             self.view.backgroundColor = UIColor.clear
@@ -37,11 +57,31 @@ class SignupVC: UIViewController, UITextFieldDelegate {
         }
         
         showAnimate()
+        
+        // Adds TapGestureRecognizer to scrollView, allows keyboard to hide upon tapping the view.
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        scrollView.addGestureRecognizer(singleTapGestureRecognizer)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
-        return false
+    func MyTapMethod(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            userImage.image = image
+        } else {
+            print("A valid image wasn't selected")
+        }
+        imagePicker.dismiss(animated: true)
+    }
+    
+    @IBAction func profileImageTapped(_ sender: Any) {
+        present(imagePicker, animated: true)
     }
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -77,6 +117,7 @@ class SignupVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // These two funcs perform screen pop animation upon entering and exiting SignupView.
     func showAnimate() {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.view.alpha = 0.0;
@@ -95,6 +136,63 @@ class SignupVC: UIViewController, UITextFieldDelegate {
                 self.view.removeFromSuperview()
             }
         })
+    }
+    
+    // This func hides the keyboard when "return" is pressed
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
+    }
+    
+    // The following funcs shifts the scrollView as necessary when keyboard is prompted
+    func registerForKeyboardNotifications(){
+        //Adding notifies on keyboard appearing
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func deregisterFromKeyboardNotifications(){
+        //Removing notifies on keyboard appearing
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWasShown(notification: NSNotification){
+        //Need to calculate keyboard exact size due to Apple suggestions
+        self.scrollView.isScrollEnabled = true
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        
+        var aRect : CGRect = self.view.frame
+        aRect.size.height -= keyboardSize!.height
+        if let activeField = self.activeField {
+            if (!aRect.contains(activeField.frame.origin)){
+                self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
+            }
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification){
+        //Once keyboard disappears, restore original positions
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        self.view.endEditing(true)
+        self.scrollView.isScrollEnabled = false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField){
+        activeField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField){
+        activeField = nil
     }
 
 }

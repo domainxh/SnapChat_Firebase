@@ -116,7 +116,6 @@ class UsersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     // Once the data is successfully uploaded to FB, it will create a downloadable URL for you so you can give it to other users.
                     let downloadURL = meta?.downloadURL() // Save this somewhere, work on it on my freetime
                     DataService.instance.sendMediaPullRequest(senderUID: FIRAuth.auth()!.currentUser!.uid, sendingTo: self.selectedUsers, mediaURL: downloadURL!, textSnippet: "Coding today was legit!")
-                    print(downloadURL)
                     // self.dismiss(animated: true, completion: nil)
                 }
             })
@@ -129,7 +128,7 @@ class UsersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 if error != nil {
                     print("Error uploading snapshot: \(error?.localizedDescription)")
                 } else {
-                    let downloadURL = meta!.downloadURL()
+                    _ = meta!.downloadURL()
                 }
             })
             self.dismiss(animated: true, completion: nil)
