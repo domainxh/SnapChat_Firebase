@@ -328,7 +328,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ooj-by-qDz">
                                                         <rect key="frame" x="0.0" y="208" width="200" height="110"/>
                                                         <subviews>
-                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Fullname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qon-g9-8WT" customClass="FancyTextField" customModule="SnapChat_Firebase" customModuleProvider="target">
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qon-g9-8WT" customClass="FancyTextField" customModule="SnapChat_Firebase" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -481,10 +481,10 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="aWq-wB-ywD" id="YY9-VP-rBR"/>
-                        <outlet property="fullnameTextField" destination="Qon-g9-8WT" id="DO8-2a-5TU"/>
                         <outlet property="passwordTextField" destination="QAx-3d-9Mv" id="CRX-id-4jr"/>
                         <outlet property="scrollView" destination="7fU-AH-OQM" id="94o-cj-A27"/>
                         <outlet property="userImage" destination="oVf-lU-Mrv" id="DHK-9r-n8g"/>
+                        <outlet property="userNameTextField" destination="Qon-g9-8WT" id="ACJ-MK-Air"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v74-ZK-pMe" userLabel="First Responder" sceneMemberID="firstResponder"/>

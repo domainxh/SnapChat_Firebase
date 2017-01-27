@@ -16,25 +16,26 @@ class DataService {
     private static var _instance = DataService()
     static var instance: DataService { return _instance }
     
-    var DataBaseRef: FIRDatabaseReference { return FIRDatabase.database().reference() }
-    var UsersRef: FIRDatabaseReference { return DataBaseRef.child("users")}
-    var StorageRef: FIRStorageReference {
+    var dataBaseRef: FIRDatabaseReference { return FIRDatabase.database().reference() }
+    var usersRef: FIRDatabaseReference { return dataBaseRef.child("users")}
+    var storageRef: FIRStorageReference {
         return FIRStorage.storage().reference(forURL: "gs://snapchat-dd9fd.appspot.com")
     }
     
     var imageStorageRef: FIRStorageReference {
-        return StorageRef.child("images")
+        return storageRef.child("images")
     }
     
     var videoStorageRef: FIRStorageReference {
-        return StorageRef.child("videos")
+        return storageRef.child("videos")
     }
     
-    func createFirebaseDBUser(uid: String) {
+    func createDataBaseUserProfile(uid: String, userName: String) {
         // everytime you create a new user, firebase automatically create a uid which you could use.
         
-        let profile: Dictionary<String, AnyObject> = ["firstname" : "" as AnyObject, "lastname" : "" as AnyObject]
-        DataBaseRef.child("users").child(uid).child("profile").setValue(profile)
+        let userInfo: Dictionary<String, AnyObject> = ["username" : userName as AnyObject]
+        
+        dataBaseRef.child("users").child(uid).setValue(userInfo)
     }
     
     func sendMediaPullRequest(senderUID: String, sendingTo: Dictionary<String, User>, mediaURL: URL, textSnippet: String? = nil) {
@@ -47,7 +48,7 @@ class DataService {
         
         let pullRequest: Dictionary<String, AnyObject> = ["mediaURL": mediaURL.absoluteString as AnyObject, "senderUID": senderUID as AnyObject, "openCount": 0 as AnyObject, "recipients": uids as AnyObject]
         
-        DataBaseRef.child("pullRequests").childByAutoId().setValue(pullRequest)
+        dataBaseRef.child("pullRequests").childByAutoId().setValue(pullRequest)
     }
     
 }

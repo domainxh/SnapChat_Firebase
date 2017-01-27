@@ -29,16 +29,16 @@ class AuthService {
         })
     }
     
-    func createAccout(email: String, password: String, onComplete: Completion?) {
+    func createUser(userName: String, email: String, password: String, onComplete: Completion?) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 self.errorHandling(error: error! as NSError, onComplete: onComplete)
             } else {
                 print("User \(user!.uid) successfully created")
                 if user?.uid != nil {
-                    DataService.instance.createFirebaseDBUser(uid: user!.uid)
+                    DataService.instance.createDataBaseUserProfile(uid: user!.uid, userName: userName)
                 }
-                onComplete?(nil, nil)
+                onComplete?(nil, user?.uid as AnyObject?)
             }
         })
     }

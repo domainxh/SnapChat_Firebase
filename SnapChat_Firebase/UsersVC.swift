@@ -45,7 +45,7 @@ class UsersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         navigationItem.rightBarButtonItem?.isEnabled = false //Make sure at least one user is selected to send anything.
         
-        DataService.instance.UsersRef.observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
+        DataService.instance.usersRef.observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
             print("Snap: \(snapshot.debugDescription)")
             
             if let users = snapshot.value as? Dictionary<String, AnyObject> {

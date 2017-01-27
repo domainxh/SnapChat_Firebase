@@ -13,12 +13,13 @@ class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UII
 
     @IBOutlet weak var emailTextField: FancyTextField!
     @IBOutlet weak var passwordTextField: FancyTextField!
-    @IBOutlet weak var fullnameTextField: FancyTextField!
+    @IBOutlet weak var userNameTextField: FancyTextField!
     @IBOutlet weak var userImage: ProfileImage!
     @IBOutlet weak var scrollView: FancyScrollView!
     
     var activeField: UITextField?
     var imagePicker: UIImagePickerController!
+    var imageSelected = false
     
     // Need to add/remove keyboardObserver upon initiation/deinitiation of the view.
     override func viewWillAppear(_ animated: Bool) {
@@ -36,8 +37,9 @@ class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UII
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        fullnameTextField.delegate = self
+        userNameTextField.delegate = self
         scrollView.delegate = self
+        
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
@@ -65,7 +67,7 @@ class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UII
         singleTapGestureRecognizer.cancelsTouchesInView = false
         scrollView.addGestureRecognizer(singleTapGestureRecognizer)
     }
-    
+
     func MyTapMethod(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
@@ -74,6 +76,7 @@ class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UII
         
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             userImage.image = image
+            imageSelected = true
         } else {
             print("A valid image wasn't selected")
         }
@@ -90,11 +93,32 @@ class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UII
     
     @IBAction func signupButtonTapped(_ sender: Any) {
         
-        if let email = emailTextField.text, let password = passwordTextField.text, (email.characters.count > 0 && password.characters.count > 0) {
-            
-            AuthService.instance.createAccout(email: email, password: password) { (errorMessage, data) in
+        if let email = emailTextField.text, let password = passwordTextField.text, let userName = userNameTextField.text, (userName.characters.count > 0 && email.characters.count > 0 && password.characters.count > 0) {
+                        
+            AuthService.instance.createUser(userName: userName, email: email, password: password) { (errorMessage, data) in
                 
                 if errorMessage == nil {
+                    
+                    if let image = self.userImage.image, self.imageSelected == true {
+                        let imageData = UIImageJPEGRepresentation(image, 0.2)
+                        let imageUID = NSUUID().uuidString // This creates unique UID
+                        let metadata = FIRStorageMetadata()
+                        metadata.contentType = "image/jpeg"
+                        
+                        DataService.instance.storageRef.child("profilePicture").child(imageUID).put(imageData!, metadata: metadata) { (metadata, error) in
+                            if error != nil {
+                                print("Unable to upload image to firebase storage: \(error)")
+                            } else {
+                                print("\(imageUID) successfully uploaded to firebase storage")
+                                self.imageSelected = false
+                                let downloadURL = metadata?.downloadURL()?.absoluteString
+                                if let url = downloadURL {
+                                    DataService.instance.usersRef.child("\(data!)").child("profilePictureURL").setValue(url)
+                                }
+                            }
+                        }
+                    }
+                    
                     let alert = UIAlertController(title: "Welcome to slapchat", message: "Your account was successfully created", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default) { (random) in
                         self.removeAnimate()
@@ -111,7 +135,7 @@ class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UII
             }
             
         } else {
-            let alert = UIAlertController(title: "Email and password required", message: "You must enter a valid email and password", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Error", message: "Empty field detected, please fill out completely", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
             present(alert, animated: true)
         }
