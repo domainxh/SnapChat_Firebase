@@ -24,7 +24,7 @@ class AuthService {
                 self.errorHandling(error: error! as NSError, onComplete: onComplete)
             } else {
                 print("User \(user?.uid) successfully logged in")
-                onComplete?(nil, user?.uid as AnyObject?)
+                onComplete?(nil, user?.uid as String? as AnyObject?)
             }
         })
     }

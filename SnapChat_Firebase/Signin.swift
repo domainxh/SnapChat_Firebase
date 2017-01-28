@@ -8,12 +8,19 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class Signin: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var emailTextField: FancyTextField!
     @IBOutlet weak var passwordTextField: FancyTextField!
 
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: "\(FIRAuth.auth()?.currentUser?.uid)") {
+            self.performSegue(withIdentifier: "toProfileVC", sender: FIRAuth.auth()?.currentUser?.uid)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +58,7 @@ class Signin: UIViewController, UITextFieldDelegate{
                     self.present(alert, animated: true)
                     
                 } else {
+                    let keychainResult = KeychainWrapper.standard.set(data as! String, forKey: "\(FIRAuth.auth()?.currentUser?.uid)")
                     self.performSegue(withIdentifier: "toProfileVC", sender: data)
                 }
             })

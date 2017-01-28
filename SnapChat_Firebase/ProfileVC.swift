@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -70,6 +71,7 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
 
     @IBAction func signoutTapped(_ sender: Any) {
         AuthService.instance.signout()
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: "\(FIRAuth.auth()?.currentUser?.uid)")
         performSegue(withIdentifier: "toSigninVC", sender: nil)
     }
     

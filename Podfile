@@ -10,5 +10,6 @@ target 'SnapChat_Firebase' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
+  pod 'SwiftKeychainWrapper'
 
 end

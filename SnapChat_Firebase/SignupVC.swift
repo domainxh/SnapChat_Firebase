@@ -99,6 +99,7 @@ class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UII
                 
                 if errorMessage == nil {
                     
+                    // upload profile image to firebase and pull imageURL
                     if let image = self.userImage.image, self.imageSelected == true {
                         let imageData = UIImageJPEGRepresentation(image, 0.2)
                         let imageUID = "\(data)" // This creates unique UID
@@ -119,6 +120,10 @@ class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UII
                         }
                     }
                     
+                    // keychainWrapper
+                    
+                    
+                    // Welcome notification
                     let alert = UIAlertController(title: "Welcome to slapchat", message: "Your account was successfully created", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default) { (random) in
                         self.removeAnimate()
