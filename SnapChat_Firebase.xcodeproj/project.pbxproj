@@ -28,6 +28,9 @@
 		F7C48D431E32FD7F0038F7ED /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D411E32FD7F0038F7ED /* PreviewView.swift */; };
 		F7C48D441E32FD7F0038F7ED /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */; };
 		F7C48D461E32FDEC0038F7ED /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D451E32FDEC0038F7ED /* CameraVC.swift */; };
+		F7ECAB7F1E3B90E7009008BD /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECAB7E1E3B90E7009008BD /* ProfileVC.swift */; };
+		F7ECAB811E3BEB2E009008BD /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECAB801E3BEB2E009008BD /* PostCell.swift */; };
+		F7ECAB851E3C3A18009008BD /* GuassianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECAB841E3C3A18009008BD /* GuassianView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		F7C48D411E32FD7F0038F7ED /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		F7C48D451E32FDEC0038F7ED /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		F7ECAB7E1E3B90E7009008BD /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		F7ECAB801E3BEB2E009008BD /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		F7ECAB841E3C3A18009008BD /* GuassianView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuassianView.swift; sourceTree = "<group>"; };
 		FF9BAB948667E1ED2FD816F0 /* Pods_SnapChat_Firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapChat_Firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +137,7 @@
 				F7A417FE1E3579E900739C48 /* Signin.swift */,
 				F755BF7F1E365BC70091F4EF /* SignupVC.swift */,
 				F7806E951E37A15300E8AAB7 /* UsersVC.swift */,
+				F7ECAB7E1E3B90E7009008BD /* ProfileVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -145,6 +152,8 @@
 				F7806E971E37A27000E8AAB7 /* UserCell.swift */,
 				F7763F221E3A31D1005188BD /* ProfileImage.swift */,
 				F72D37461E3AA98200987D6F /* FancyScrollView.swift */,
+				F7ECAB801E3BEB2E009008BD /* PostCell.swift */,
+				F7ECAB841E3C3A18009008BD /* GuassianView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -303,14 +312,17 @@
 				F7806E941E36FB7000E8AAB7 /* DataService.swift in Sources */,
 				F72A4A0E1E2C01C400F7E7F1 /* AppDelegate.swift in Sources */,
 				F755BF821E3663910091F4EF /* FancySignupView.swift in Sources */,
+				F7ECAB811E3BEB2E009008BD /* PostCell.swift in Sources */,
 				F7806E981E37A27000E8AAB7 /* UserCell.swift in Sources */,
 				F7A417FD1E35647400739C48 /* FancyButton.swift in Sources */,
 				F7806E9A1E37A7E300E8AAB7 /* User.swift in Sources */,
 				F7A417FB1E35611200739C48 /* FancyTextField.swift in Sources */,
+				F7ECAB851E3C3A18009008BD /* GuassianView.swift in Sources */,
 				F755BF801E365BC80091F4EF /* SignupVC.swift in Sources */,
 				F7806E961E37A15300E8AAB7 /* UsersVC.swift in Sources */,
 				F72D37471E3AA98200987D6F /* FancyScrollView.swift in Sources */,
 				F7C48D441E32FD7F0038F7ED /* PhotoCaptureDelegate.swift in Sources */,
+				F7ECAB7F1E3B90E7009008BD /* ProfileVC.swift in Sources */,
 				F7C48D431E32FD7F0038F7ED /* PreviewView.swift in Sources */,
 				F7763F231E3A31D1005188BD /* ProfileImage.swift in Sources */,
 				F7A417FF1E3579E900739C48 /* Signin.swift in Sources */,

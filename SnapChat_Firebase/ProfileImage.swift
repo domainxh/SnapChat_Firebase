@@ -8,13 +8,19 @@
 
 import UIKit
 
+@IBDesignable
 class ProfileImage: UIImageView {
 
+    @IBInspectable var borderWidth: CGFloat = 0 {
+        didSet {
+            layer.borderWidth = borderWidth
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         layer.cornerRadius = self.frame.width / 2
-        layer.borderWidth = 1
         layer.borderColor = UIColor.white.cgColor
         clipsToBounds = true
     }

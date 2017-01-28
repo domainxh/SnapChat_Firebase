@@ -101,7 +101,7 @@ class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UII
                     
                     if let image = self.userImage.image, self.imageSelected == true {
                         let imageData = UIImageJPEGRepresentation(image, 0.2)
-                        let imageUID = NSUUID().uuidString // This creates unique UID
+                        let imageUID = "\(data)" // This creates unique UID
                         let metadata = FIRStorageMetadata()
                         metadata.contentType = "image/jpeg"
                         

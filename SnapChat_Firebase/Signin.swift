@@ -17,8 +17,8 @@ class Signin: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -31,8 +31,16 @@ class Signin: UIViewController, UITextFieldDelegate{
         return false
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ProfileVC {
+            
+            if let userUID = sender as? String {
+                destination.userUID = userUID
+            }
+        }
+    }
+    
     @IBAction func loginButtonTapped(_ sender: Any) {
-        
         if let email = emailTextField.text, let password = passwordTextField.text, (email.characters.count > 0 && password.characters.count > 0) {
             
             AuthService.instance.login(email: email, password: password, onComplete: { (errorMessage, data) in
@@ -43,17 +51,15 @@ class Signin: UIViewController, UITextFieldDelegate{
                     self.present(alert, animated: true)
                     
                 } else {
-                    self.performSegue(withIdentifier: "CameraVC", sender: nil)
+                    self.performSegue(withIdentifier: "toProfileVC", sender: data)
                 }
-
             })
             
         } else {
             let alert = UIAlertController(title: "Username and password required", message: "You must enter a valid email and password", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
             present(alert, animated: true)
         }
-
     }
     
     @IBAction func fingerprintButtonTapped(_ sender: Any) {}

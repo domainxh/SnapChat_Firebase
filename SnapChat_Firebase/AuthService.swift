@@ -24,7 +24,7 @@ class AuthService {
                 self.errorHandling(error: error! as NSError, onComplete: onComplete)
             } else {
                 print("User \(user?.uid) successfully logged in")
-                onComplete?(nil, user)
+                onComplete?(nil, user?.uid as AnyObject?)
             }
         })
     }
@@ -41,6 +41,15 @@ class AuthService {
                 onComplete?(nil, user?.uid as AnyObject?)
             }
         })
+    }
+    
+    func signout() {
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
     
     func errorHandling(error: NSError, onComplete: Completion?) {
