@@ -10,15 +10,16 @@ import UIKit
 import Firebase
 import SwiftKeychainWrapper
 
-class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var followerNumber: UILabel!
     @IBOutlet weak var followingNumber: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profileImage: ProfileImage!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var guassianView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     
-//    static var imageCache: NSCache<NSString, UIImage> = NSCache()
     var imagePicker: UIImagePickerController!
     
     private var _userUID: String!
@@ -33,26 +34,27 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
-        let firebaseUser = DataService.instance.usersRef.child(userUID)
+        
         // user1@aol.com, 123456
-    
+        let firebaseUser = DataService.instance.usersRef.child(userUID)
         firebaseUser.observeSingleEvent(of: .value, with: { (snapshot) in
             if let user = snapshot.value as? Dictionary<String, AnyObject> {
                 if let username = user["username"] as? String {
                     self.userName.text = username
                 }
                 if let followers = user["followers"] as? Dictionary<String, AnyObject> {
-                    print(followers)
                     self.followerNumber.text = "\(followers.count)"
                 }
                 if let following = user["following"] as? Dictionary<String, AnyObject> {
                     self.followingNumber.text = "\(following.count)"
                 }
-                
                 if let profileImageURL = user["profilePictureURL"] as? String {
                     DispatchQueue.global().async {
                         let imageData = try? Data(contentsOf: URL(string: profileImageURL)!)
@@ -67,11 +69,20 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
         }) { (error) in
             print(error.localizedDescription)
         }
+
+        // Blurs the backgroundImage
+        backgroundImage.clipsToBounds = true
+        self.guassianView.backgroundColor = UIColor.clear
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.guassianView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.guassianView.insertSubview(blurEffectView, at: 0)
     }
 
     @IBAction func signoutTapped(_ sender: Any) {
         AuthService.instance.signout()
-        let keychainResult = KeychainWrapper.standard.removeObject(forKey: "\(FIRAuth.auth()?.currentUser?.uid)")
+        _ = KeychainWrapper.standard.removeObject(forKey: "\(FIRAuth.auth()?.currentUser?.uid)")
         performSegue(withIdentifier: "toSigninVC", sender: nil)
     }
     
@@ -106,7 +117,25 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
                 }
             }
         }
-        
     }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        return cell!
+//        return UITableViewCell()
+    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
     
 }

@@ -30,7 +30,6 @@
 		F7C48D461E32FDEC0038F7ED /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D451E32FDEC0038F7ED /* CameraVC.swift */; };
 		F7ECAB7F1E3B90E7009008BD /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECAB7E1E3B90E7009008BD /* ProfileVC.swift */; };
 		F7ECAB811E3BEB2E009008BD /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECAB801E3BEB2E009008BD /* PostCell.swift */; };
-		F7ECAB851E3C3A18009008BD /* GuassianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECAB841E3C3A18009008BD /* GuassianView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +59,6 @@
 		F7C48D451E32FDEC0038F7ED /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		F7ECAB7E1E3B90E7009008BD /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		F7ECAB801E3BEB2E009008BD /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		F7ECAB841E3C3A18009008BD /* GuassianView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuassianView.swift; sourceTree = "<group>"; };
 		FF9BAB948667E1ED2FD816F0 /* Pods_SnapChat_Firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapChat_Firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -153,7 +151,6 @@
 				F7763F221E3A31D1005188BD /* ProfileImage.swift */,
 				F72D37461E3AA98200987D6F /* FancyScrollView.swift */,
 				F7ECAB801E3BEB2E009008BD /* PostCell.swift */,
-				F7ECAB841E3C3A18009008BD /* GuassianView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -317,7 +314,6 @@
 				F7A417FD1E35647400739C48 /* FancyButton.swift in Sources */,
 				F7806E9A1E37A7E300E8AAB7 /* User.swift in Sources */,
 				F7A417FB1E35611200739C48 /* FancyTextField.swift in Sources */,
-				F7ECAB851E3C3A18009008BD /* GuassianView.swift in Sources */,
 				F755BF801E365BC80091F4EF /* SignupVC.swift in Sources */,
 				F7806E961E37A15300E8AAB7 /* UsersVC.swift in Sources */,
 				F72D37471E3AA98200987D6F /* FancyScrollView.swift in Sources */,
@@ -446,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6597B9965836EED88E3D5B1 /* Pods-SnapChat_Firebase.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 45E7KT68K8;
 				INFOPLIST_FILE = SnapChat_Firebase/Info.plist;
@@ -460,6 +457,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C3E4645EB51AB9BA2B6D53CE /* Pods-SnapChat_Firebase.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 45E7KT68K8;
 				INFOPLIST_FILE = SnapChat_Firebase/Info.plist;

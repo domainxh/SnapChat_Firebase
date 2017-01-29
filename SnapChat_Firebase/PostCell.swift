@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class PostCell: UITableViewCell {
 
+    @IBOutlet weak var videoComment: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

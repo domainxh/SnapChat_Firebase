@@ -58,7 +58,7 @@ class Signin: UIViewController, UITextFieldDelegate{
                     self.present(alert, animated: true)
                     
                 } else {
-                    let keychainResult = KeychainWrapper.standard.set(data as! String, forKey: "\(FIRAuth.auth()?.currentUser?.uid)")
+                    _ = KeychainWrapper.standard.set(data as! String, forKey: "\(FIRAuth.auth()?.currentUser?.uid)")
                     self.performSegue(withIdentifier: "toProfileVC", sender: data)
                 }
             })
