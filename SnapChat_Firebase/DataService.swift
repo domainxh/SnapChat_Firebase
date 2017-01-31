@@ -9,8 +9,6 @@
 import Foundation
 import Firebase
 
-
-
 class DataService {
     
     private static var _instance = DataService()
@@ -35,10 +33,10 @@ class DataService {
         
         let userInfo: Dictionary<String, AnyObject> = ["username" : userName as AnyObject]
         
-        dataBaseRef.child("users").child(uid).setValue(userInfo)
+        usersRef.child(uid).setValue(userInfo)
     }
     
-    func sendMediaPullRequest(senderUID: String, sendingTo: Dictionary<String, User>, mediaURL: URL, textSnippet: String? = nil) {
+    func sendMediaPullRequest(senderUID: String, sendingTo: Dictionary<String, User>, mediaURL: URL, videoComment: String? = nil) {
         // Two types: one for chat messages, the other one for media(video/photo)
         
         var uids = [String]()
@@ -46,7 +44,7 @@ class DataService {
             uids.append(uid)
         }
         
-        let pullRequest: Dictionary<String, AnyObject> = ["mediaURL": mediaURL.absoluteString as AnyObject, "senderUID": senderUID as AnyObject, "openCount": 0 as AnyObject, "recipients": uids as AnyObject]
+        let pullRequest: Dictionary<String, AnyObject> = ["mediaURL": mediaURL.absoluteString as AnyObject, "senderUID": senderUID as AnyObject, "openCount": 0 as AnyObject, "recipients": uids as AnyObject, "videoComment": videoComment as AnyObject]
         
         dataBaseRef.child("pullRequests").childByAutoId().setValue(pullRequest)
     }

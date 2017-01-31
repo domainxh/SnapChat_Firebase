@@ -17,7 +17,7 @@ class Signin: UIViewController, UITextFieldDelegate{
 
     override func viewDidAppear(_ animated: Bool) {
         if let _ = KeychainWrapper.standard.string(forKey: "\(FIRAuth.auth()?.currentUser?.uid)") {
-            self.performSegue(withIdentifier: "toProfileVC", sender: FIRAuth.auth()?.currentUser?.uid)
+            self.performSegue(withIdentifier: "toProfileVC", sender: nil)
         }
     }
     
@@ -38,14 +38,14 @@ class Signin: UIViewController, UITextFieldDelegate{
         return false
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ProfileVC {
-            
-            if let userUID = sender as? String {
-                destination.userUID = userUID
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let destination = segue.destination as? ProfileVC {
+//            
+//            if let userUID = sender as? String {
+//                destination.userUID = userUID
+//            }
+//        }
+//    }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text, (email.characters.count > 0 && password.characters.count > 0) {

@@ -14,6 +14,8 @@ import Firebase
 class CameraVC: UIViewController, AVCaptureFileOutputRecordingDelegate {
 	// MARK: View Controller Life Cycle
 	
+    var imageData: Data?
+    
     override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -74,21 +76,6 @@ class CameraVC: UIViewController, AVCaptureFileOutputRecordingDelegate {
 		}
 	}
 	
-    // *************************************** XH Addition ************************************************//
-    override func viewDidAppear(_ animated: Bool) {
-        // Verify that the user has successfully logged in. This guard statement needs to be here and not in the viewDidLoad because, viewDidLoad is called onetime right after all the items are loaded in memory, but not visible to the user. We can't laod another viewController on the screen until the view is visible to the user. Hence we need to do it after viewDidAppear.
-        
-        guard FIRAuth.auth()?.currentUser != nil else {
-            // Authentication failed, load login VC
-            
-            performSegue(withIdentifier: "returnToSigninScreen", sender: nil)
-            // Try different segues, like show, present modally and etc.
-            
-            return
-        }
-    }
-    // *************************************** XH Addition ************************************************//
-    
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
@@ -595,9 +582,14 @@ class CameraVC: UIViewController, AVCaptureFileOutputRecordingDelegate {
 			*/
 			self.inProgressPhotoCaptureDelegates[photoCaptureDelegate.requestedPhotoSettings.uniqueID] = photoCaptureDelegate
  
+            // *************************************** XH Addition ************************************************//
+            // This fixes a bug when capturing picture using front camera, it crashes beacuse the flashMode is on .auto.
             let position = self.videoDeviceInput.device.position
             photoSettings.flashMode = position == .front || position == .unspecified ? .off : .auto
+            // *************************************** XH Addition ************************************************//
+            
 			self.photoOutput.capturePhoto(with: photoSettings, delegate: photoCaptureDelegate)
+            
 		}
 	}
 	
@@ -738,33 +730,36 @@ class CameraVC: UIViewController, AVCaptureFileOutputRecordingDelegate {
 		}
 		
 		if success {
-            // We want the video to be uploaded directly to firebase instead of saving on the device, hencing commenting out this portion of the code.
-			// Check authorization status.
             
-//            let cameraVC = CameraVC()
-//            cameraVC.videoRecordingComplete(outputFileURL)
+            // *************************************** XH Addition ************************************************//
+            // We want the video to be uploaded directly to firebase instead of saving on the device, hence commenting out this portion of the code.
+
             videoRecordingComplete(outputFileURL)
+            // *************************************** XH Addition ************************************************//
+			
+            /*
+            PHPhotoLibrary.requestAuthorization { status in
+				if status == .authorized {
+					// Save the movie file to the photo library and cleanup.
+					PHPhotoLibrary.shared().performChanges({
+							let options = PHAssetResourceCreationOptions()
+							options.shouldMoveFile = true
+							let creationRequest = PHAssetCreationRequest.forAsset()
+							creationRequest.addResource(with: .video, fileURL: outputFileURL, options: options)
+						}, completionHandler: { success, error in
+							if !success {
+								print("Could not save movie to photo library: \(error)")
+							}
+							cleanup()
+						}
+					)
+				}
+				else {
+					cleanup()
+				}
+			}
+            */
             
-//			PHPhotoLibrary.requestAuthorization { status in
-//				if status == .authorized {
-//					// Save the movie file to the photo library and cleanup.
-//					PHPhotoLibrary.shared().performChanges({
-//							let options = PHAssetResourceCreationOptions()
-//							options.shouldMoveFile = true
-//							let creationRequest = PHAssetCreationRequest.forAsset()
-//							creationRequest.addResource(with: .video, fileURL: outputFileURL, options: options)
-//						}, completionHandler: { success, error in
-//							if !success {
-//								print("Could not save movie to photo library: \(error)")
-//							}
-//							cleanup()
-//						}
-//					)
-//				}
-//				else {
-//					cleanup()
-//				}
-//			}
 		}
 		else {
 			cleanup()
@@ -781,7 +776,7 @@ class CameraVC: UIViewController, AVCaptureFileOutputRecordingDelegate {
 	}
 	
 	// MARK: KVO and Notifications
-	
+    
 	private var sessionRunningObserveContext = 0
 	
 	private func addObservers() {
@@ -947,6 +942,10 @@ class CameraVC: UIViewController, AVCaptureFileOutputRecordingDelegate {
         }
     }
     
+    @IBAction func returnButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "CameraVC_ProfileVC", sender: nil)
+    }
+    
     // *************************************** XH Addition ************************************************//
     
 }
@@ -988,3 +987,5 @@ extension AVCaptureDeviceDiscoverySession {
 		return uniqueDevicePositions.count
 	}
 }
+
+

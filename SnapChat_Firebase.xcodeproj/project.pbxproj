@@ -28,6 +28,7 @@
 		F7C48D431E32FD7F0038F7ED /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D411E32FD7F0038F7ED /* PreviewView.swift */; };
 		F7C48D441E32FD7F0038F7ED /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */; };
 		F7C48D461E32FDEC0038F7ED /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C48D451E32FDEC0038F7ED /* CameraVC.swift */; };
+		F7C8A5C71E3FD6030006413C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C8A5C61E3FD6030006413C /* Post.swift */; };
 		F7ECAB7F1E3B90E7009008BD /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECAB7E1E3B90E7009008BD /* ProfileVC.swift */; };
 		F7ECAB811E3BEB2E009008BD /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECAB801E3BEB2E009008BD /* PostCell.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		F7C48D411E32FD7F0038F7ED /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		F7C48D421E32FD7F0038F7ED /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		F7C48D451E32FDEC0038F7ED /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		F7C8A5C61E3FD6030006413C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F7ECAB7E1E3B90E7009008BD /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		F7ECAB801E3BEB2E009008BD /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		FF9BAB948667E1ED2FD816F0 /* Pods_SnapChat_Firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapChat_Firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,7 +125,6 @@
 				F72A4A161E2C01C400F7E7F1 /* LaunchScreen.storyboard */,
 				F7A417F81E3543C900739C48 /* GoogleService-Info.plist */,
 				F72A4A191E2C01C400F7E7F1 /* Info.plist */,
-				F7806E991E37A7E300E8AAB7 /* User.swift */,
 			);
 			path = SnapChat_Firebase;
 			sourceTree = "<group>";
@@ -158,6 +159,8 @@
 		F72A4A211E2C035100F7E7F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F7806E991E37A7E300E8AAB7 /* User.swift */,
+				F7C8A5C61E3FD6030006413C /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				F7C48D441E32FD7F0038F7ED /* PhotoCaptureDelegate.swift in Sources */,
 				F7ECAB7F1E3B90E7009008BD /* ProfileVC.swift in Sources */,
 				F7C48D431E32FD7F0038F7ED /* PreviewView.swift in Sources */,
+				F7C8A5C71E3FD6030006413C /* Post.swift in Sources */,
 				F7763F231E3A31D1005188BD /* ProfileImage.swift in Sources */,
 				F7A417FF1E3579E900739C48 /* Signin.swift in Sources */,
 			);

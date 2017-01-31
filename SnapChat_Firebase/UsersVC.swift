@@ -14,6 +14,7 @@ import FirebaseAuth
 class UsersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var videoCommentTextField: UITextField!
     
     private var users = [User]()
     private var selectedUsers = Dictionary<String, User>()
@@ -45,25 +46,20 @@ class UsersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         navigationItem.rightBarButtonItem?.isEnabled = false //Make sure at least one user is selected to send anything.
         
-        DataService.instance.usersRef.observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
-            print("Snap: \(snapshot.debugDescription)")
+        // Checks for followers
+        let loggedInUserUID = FIRAuth.auth()?.currentUser?.uid
+        DataService.instance.usersRef.child(loggedInUserUID!).observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
             
-            if let users = snapshot.value as? Dictionary<String, AnyObject> {
-                for (key, value) in users {
-                    if let dict = value as? Dictionary<String, AnyObject> {
-                        if let profile = dict["profile"] as? Dictionary<String, AnyObject> {
-                            if let firstname = profile["firstname"] as? String {
-                                let uid = key
-                                let user = User(uid: uid, firstname: firstname)
-                                self.users.append(user)
-                            }
-                        }
+            if let user = snapshot.value as? Dictionary<String, AnyObject> {
+                if let followers = user["followers"] as? Dictionary<String, AnyObject> {
+                    print("followers: \(followers)")
+                    for (key, value) in followers {
+                        let user = User(uid: key, username: value as! String)
+                        self.users.append(user)
                     }
                 }
             }
-            
             self.tableView.reloadData()
-            
         }
         // .value is when it receives data for the first time.
         
@@ -104,6 +100,11 @@ class UsersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func sendPullReqPressed(_ sender: Any) {
+        
+        if videoCommentTextField.text == nil {
+            videoCommentTextField.text = ""
+        }
+        
         if let url = _videoURL {
             let videoName = "\(NSUUID().uuidString)\(url)" // this will guarantee unique videonames
             let ref = DataService.instance.videoStorageRef.child(videoName)
@@ -115,11 +116,13 @@ class UsersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 } else {
                     // Once the data is successfully uploaded to FB, it will create a downloadable URL for you so you can give it to other users.
                     let downloadURL = meta?.downloadURL() // Save this somewhere, work on it on my freetime
-                    DataService.instance.sendMediaPullRequest(senderUID: FIRAuth.auth()!.currentUser!.uid, sendingTo: self.selectedUsers, mediaURL: downloadURL!, textSnippet: "Coding today was legit!")
+                    
+                    DataService.instance.sendMediaPullRequest(senderUID: FIRAuth.auth()!.currentUser!.uid, sendingTo: self.selectedUsers, mediaURL: downloadURL!, videoComment: self.videoCommentTextField.text)
                     // self.dismiss(animated: true, completion: nil)
                 }
             })
-            self.dismiss(animated: true, completion: nil) // we're leaving it here because if you leave it in the if statement, it's asyncronous so it will take a while to get to it. By leaving it here... we will dismiss the screen right after hitting the button, therefore making it look like it was instant.
+            self.performSegue(withIdentifier: "UsersVC_ProfileVC", sender: nil)
+
         } else if let snap = _snapData {
             let imageName = "\(NSUUID().uuidString).jpg"
             let ref = DataService.instance.imageStorageRef.child(imageName)

@@ -8,17 +8,16 @@
 
 import UIKit
 
-
-
 struct User {
-    private var _firstname: String
+    private var _username: String
     private var _uid: String
     
-    var firstname: String { return _firstname }
+    var username: String { return _username }
     var uid: String { return _uid }
     
-    init(uid: String, firstname: String) {
-        _firstname = firstname
+    init(uid: String, username: String) {
+        _username = username
         _uid = uid
+
     }
 }

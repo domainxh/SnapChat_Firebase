@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class UserCell: UITableViewCell {
 
-    @IBOutlet weak var firstnameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,6 @@ class UserCell: UITableViewCell {
     }
 
     func updateUI(user: User) {
-        firstnameLabel.text = user.firstname
+        usernameLabel.text = user.username
     }
 }

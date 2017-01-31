@@ -20,16 +20,9 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
     @IBOutlet weak var guassianView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    var posts = [Post]()
     var imagePicker: UIImagePickerController!
-    
-    private var _userUID: String!
-    var userUID: String {
-        get {
-            return _userUID
-        } set {
-            _userUID = newValue
-        }
-    }
+    var currentUserUID = FIRAuth.auth()?.currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +34,31 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
+        // Checks for pullRequest and append to posts
+        DataService.instance.dataBaseRef.child("pullRequests").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.posts = []
+            
+            if let pullRequests = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for pullRequest in pullRequests {
+                    if let pullRequestDict = pullRequest.value as? Dictionary<String, AnyObject> {
+                        if let recipients = pullRequestDict["recipients"] as? [String] {
+                            for recipient in recipients {
+                                if recipient == self.currentUserUID {
+//                                    print(pullRequestDict)
+                                    let post = Post(postKey: pullRequest.key, postData: pullRequestDict)
+                                    self.posts.append(post)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            self.tableView.reloadData()
+        })
         
         // user1@aol.com, 123456
-        let firebaseUser = DataService.instance.usersRef.child(userUID)
-        firebaseUser.observeSingleEvent(of: .value, with: { (snapshot) in
+        
+        DataService.instance.usersRef.child(currentUserUID!).observeSingleEvent(of: .value, with: { (snapshot) in
             if let user = snapshot.value as? Dictionary<String, AnyObject> {
                 if let username = user["username"] as? String {
                     self.userName.text = username
@@ -57,10 +71,11 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
                 }
                 if let profileImageURL = user["profilePictureURL"] as? String {
                     DispatchQueue.global().async {
-                        let imageData = try? Data(contentsOf: URL(string: profileImageURL)!)
-                        DispatchQueue.main.async {
-                            self.profileImage.image = UIImage(data: imageData!)
-                            self.backgroundImage.image = UIImage(data: imageData!)
+                        if let imageData = try? Data(contentsOf: URL(string: profileImageURL)!) {
+                            DispatchQueue.main.async {
+                                self.profileImage.image = UIImage(data: imageData)
+                                self.backgroundImage.image = UIImage(data: imageData)
+                            }
                         }
                     }
                 }
@@ -96,6 +111,10 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
         imagePicker.dismiss(animated: true)
     }
     
+    @IBAction func recordButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toCameraVC", sender: nil)
+    }
+    
     @IBAction func profileImageTapped(_ sender: Any) {
         present(imagePicker, animated: true)
         
@@ -112,7 +131,7 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
                     print("\(imageUID) successfully uploaded to firebase storage")
                     let downloadURL = metadata?.downloadURL()?.absoluteString
                     if let url = downloadURL {
-                        DataService.instance.usersRef.child(self.userUID).child("profilePictureURL").setValue(url)
+                        DataService.instance.usersRef.child(self.currentUserUID!).child("profilePictureURL").setValue(url)
                     }
                 }
             }
@@ -125,17 +144,16 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        return cell!
-//        return UITableViewCell()
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? PostCell {
+            cell.configureCell(post: posts[indexPath.row])
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-    
+
 }

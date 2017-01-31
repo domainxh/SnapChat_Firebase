@@ -10,6 +10,7 @@ import AVFoundation
 import Photos
 
 class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
+    
 	private(set) var requestedPhotoSettings: AVCapturePhotoSettings
 	
 	private let willCapturePhotoAnimation: () -> ()
@@ -21,7 +22,7 @@ class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
 	private var photoData: Data? = nil
 	
 	private var livePhotoCompanionMovieURL: URL? = nil
-
+    
 	init(with requestedPhotoSettings: AVCapturePhotoSettings, willCapturePhotoAnimation: @escaping () -> (), capturingLivePhoto: @escaping (Bool) -> (), completed: @escaping (PhotoCaptureDelegate) -> ()) {
 		self.requestedPhotoSettings = requestedPhotoSettings
 		self.willCapturePhotoAnimation = willCapturePhotoAnimation
@@ -89,7 +90,12 @@ class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
 			didFinish()
 			return
 		}
-		
+
+    // *************************************** XH Addition ************************************************//
+        
+
+        
+        /*
 		PHPhotoLibrary.requestAuthorization { [unowned self] status in
 			if status == .authorized {
 				PHPhotoLibrary.shared().performChanges({ [unowned self] in
@@ -115,5 +121,9 @@ class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
 				self.didFinish()
 			}
 		}
-	}
+        */
+    // *************************************** XH Addition ************************************************//
+	
+    }
+    
 }
