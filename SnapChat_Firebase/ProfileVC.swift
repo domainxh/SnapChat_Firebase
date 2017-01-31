@@ -44,7 +44,6 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
                         if let recipients = pullRequestDict["recipients"] as? [String] {
                             for recipient in recipients {
                                 if recipient == self.currentUserUID {
-//                                    print(pullRequestDict)
                                     let post = Post(postKey: pullRequest.key, postData: pullRequestDict)
                                     self.posts.append(post)
                                 }
@@ -109,22 +108,15 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
             print("A valid image wasn't selected")
         }
         imagePicker.dismiss(animated: true)
-    }
-    
-    @IBAction func recordButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "toCameraVC", sender: nil)
-    }
-    
-    @IBAction func profileImageTapped(_ sender: Any) {
-        present(imagePicker, animated: true)
         
+        // Uploads the new image to firebase
         if let image = self.profileImage.image {
             let imageData = UIImageJPEGRepresentation(image, 0.2)
-            let imageUID = NSUUID().uuidString // This creates unique UID
+            let imageUID = self.currentUserUID // NSUUID().uuidString - This creates unique UID
             let metadata = FIRStorageMetadata()
             metadata.contentType = "image/jpeg"
             
-            DataService.instance.storageRef.child("profilePicture").child(imageUID).put(imageData!, metadata: metadata) { (metadata, error) in
+            DataService.instance.storageRef.child("profilePicture").child(imageUID!).put(imageData!, metadata: metadata) { (metadata, error) in
                 if error != nil {
                     print("Unable to upload image to firebase storage: \(error)")
                 } else {
@@ -136,6 +128,14 @@ class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePicker
                 }
             }
         }
+    }
+    
+    @IBAction func recordButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toCameraVC", sender: nil)
+    }
+    
+    @IBAction func profileImageTapped(_ sender: Any) {
+        present(imagePicker, animated: true)
     }
     
     

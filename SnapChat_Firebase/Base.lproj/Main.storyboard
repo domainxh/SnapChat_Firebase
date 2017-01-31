@@ -639,7 +639,7 @@
                                         </connections>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="w2R-gv-9VZ" secondAttribute="trailing" id="5Nw-uo-ChJ"/>
                                     <constraint firstAttribute="bottom" secondItem="vs1-9o-MwE" secondAttribute="bottom" id="7sY-hu-zjQ"/>
@@ -680,9 +680,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBU-Mn-93Z">
                                                     <rect key="frame" x="4" y="4" width="367" height="206"/>
                                                     <subviews>
-                                                        <webView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="rPl-VT-8SF">
+                                                        <webView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="rPl-VT-8SF">
                                                             <rect key="frame" x="0.0" y="0.0" width="367" height="206"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </webView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Dug-dH-2wb">
                                                             <rect key="frame" x="8" y="158" width="99.5" height="40"/>
@@ -728,7 +728,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.0" green="0.88235294119999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="rPl-VT-8SF" secondAttribute="trailing" id="4b7-tD-9RH"/>
                                                         <constraint firstItem="rPl-VT-8SF" firstAttribute="top" secondItem="xBU-Mn-93Z" secondAttribute="top" id="6uz-vg-adb"/>
@@ -744,7 +744,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.17294574870000001" green="0.17294574870000001" blue="0.17294574870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="xBU-Mn-93Z" secondAttribute="bottom" constant="2" id="BX0-Eh-p2l"/>
                                                 <constraint firstAttribute="trailing" secondItem="xBU-Mn-93Z" secondAttribute="trailing" constant="4" id="WXb-qg-f2c"/>
@@ -764,7 +764,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.17294574873096447" green="0.17294574873096447" blue="0.17294574873096447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="MBc-sL-gTv" secondAttribute="trailing" id="CPL-oN-J8r"/>
                             <constraint firstItem="g2U-gI-tOF" firstAttribute="leading" secondItem="shu-Sf-Ee7" secondAttribute="leading" id="MPo-JI-TUa"/>

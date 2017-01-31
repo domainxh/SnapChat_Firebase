@@ -120,9 +120,6 @@ class SignupVC: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UII
                         }
                     }
                     
-                    // keychainWrapper
-                    
-                    
                     // Welcome notification
                     let alert = UIAlertController(title: "Welcome to slapchat", message: "Your account was successfully created", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default) { (random) in

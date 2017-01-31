@@ -31,8 +31,10 @@ class PostCell: UITableViewCell {
         
         if post.videoURL.characters.count >= 0 {
             webView.isHidden = false
-            let url = "<iframe align=\"middle\" width=\"100%\" height=\"100%\" src=\"\(post.videoURL)\" frameborder=\"0\" allowfullscreen></iframe>"
+            let url = "<iframe width=\"100%\" height=\"100%\" src=\"\(post.videoURL)\" frameborder=\"0\" allowfullscreen></iframe>"
+            webView.scalesPageToFit = true
             webView.allowsInlineMediaPlayback = true
+            webView.scrollView.isScrollEnabled = false
             webView.loadHTMLString(url, baseURL: nil)
         } else {
             webView.isHidden = true
